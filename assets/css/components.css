@@ -213,6 +213,9 @@
 
 /* NAVIGATION + FOOTER removidos — usa assets/home/css/main.css */
 
+/* Team cards hover (substitui inline onmouseover) */
+.grid-4 .fade-in:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+
 /* ================================================================
    CARDS
    ================================================================ */
