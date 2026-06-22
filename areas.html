@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Áreas de Atuação | Controle de Poeira em Mineração, Siderurgia e Construção — Suppress</title>
+  <meta name="description" content="A Suppress atua em mineração, siderurgia, portos, construção civil e indústria pesada. Soluções específicas com normas aplicáveis e resultados comprovados para controle de poeira.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.suppress.com.br/areas.html">
+
+  <meta property="og:title" content="Áreas de Atuação | Controle de Poeira — Suppress">
+  <meta property="og:description" content="Controle de poeira em mineração, siderurgia, portos, construção civil e indústria. Normas aplicáveis e soluções da Suppress para cada setor.">
+  <meta property="og:image" content="https://www.suppress.com.br/assets/images/hero-suppress.png">
+  <meta property="og:url" content="https://www.suppress.com.br/areas.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <style>
+    /* Page-specific styles for areas */
+    .sector-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sector-section:last-of-type { border-bottom: none; }
+    .sector-section:nth-child(even) { background: var(--color-bg); }
+    .sector-section:nth-child(odd)  { background: var(--color-white); }
+
+    .sector-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .sector-layout { grid-template-columns: 1fr 1fr; }
+      .sector-layout--reverse .sector-content { order: -1; }
+    }
+
+    .sector-image {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .sector-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .sector-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,102,0,0.15), transparent);
+      pointer-events: none;
+    }
+
+    .sector-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: var(--color-primary);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .sector-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--color-dark);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .sector-desc {
+      font-size: 1rem;
+      color: var(--color-gray);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .sector-norms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .sector-norm {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-dark-mid);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .sector-result {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,102,0,0.08);
+      border-radius: 8px;
+      border-left: 4px solid var(--color-primary);
+      margin: 1.5rem 0;
+    }
+
+    .sector-result-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .sector-result-text {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Sector quick-nav anchors */
+    .sector-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 2rem 0;
+    }
+
+    .sector-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--color-border);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-dark-mid);
+      background: var(--color-white);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .sector-nav-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: rgba(255,102,0,0.06);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Áreas de Atuação da Suppress",
+    "url": "https://www.suppress.com.br/areas.html",
+    "description": "Controle de poeira em mineração, siderurgia, portos, construção civil e indústria pesada.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.suppress.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Áreas de Atuação", "item": "https://www.suppress.com.br/areas.html" }
+      ]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="assets/home/css/main.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="nav">
+      <a href="index.html" class="nav__logo" aria-label="Suppress — página inicial"><img src="assets/home/images/logo-white.png" alt="Suppress — Tecnologia e Sustentabilidade" width="200" height="30"></a>
+      <nav class="nav__menu" aria-label="Menu principal">
+        <a href="index.html">Home</a>
+        <a href="institucional.html">Institucional</a>
+        <a href="cases.html">Cases</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="areas.html" class="active">Áreas de Atuação</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <div class="nav__cta">
+        <a href="index.html#diagnostico" class="nav__contact">Contato
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a>
+        <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="scrim"></div>
+<aside class="mobile-nav" aria-label="Menu mobile">
+  <div class="mobile-nav__head">
+    <img src="assets/home/images/logo-white.png" alt="Suppress">
+    <button class="mobile-nav__close" aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <a class="m-link" href="index.html">Home</a>
+  <a class="m-link" href="institucional.html">Institucional</a>
+  <a class="m-link" href="cases.html">Cases</a>
+  <a class="m-link" href="produtos.html">Produtos</a>
+  <a class="m-link active" href="areas.html">Áreas de Atuação</a>
+  <a class="m-link" href="clientes.html">Clientes</a>
+  <a class="m-link" href="blog.html">Blog</a>
+  <a class="btn btn--primary btn--block" href="index.html#diagnostico">Diagnóstico Gratuito</a>
+  <div class="mobile-nav__contact">
+    <span>(31) 2510-9600</span>
+    <span>comercial@suppress.com.br</span>
+  </div>
+</aside><main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="areas-hero-title">
+      <div class="page-hero__bg-accent" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Caminho de navegação">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Áreas de Atuação</span>
+        </nav>
+        <span class="section-label" style="color:var(--color-primary);">Onde atuamos</span>
+        <h1 id="areas-hero-title">Áreas de Atuação da Suppress</h1>
+        <p>Controle de poeira onde a emissão é crítica: mineração, siderurgia, portos, construção e indústrias pesadas.</p>
+
+        <!-- Quick navigation -->
+        <nav class="sector-nav" aria-label="Navegação por setor">
+          <a href="#mineracao" class="sector-nav-btn">Mineração</a>
+          <a href="#siderurgia" class="sector-nav-btn">Siderurgia</a>
+          <a href="#portos" class="sector-nav-btn">Portos e Terminais</a>
+          <a href="#construcao" class="sector-nav-btn">Construção Civil</a>
+          <a href="#industrias" class="sector-nav-btn">Indústrias em Geral</a>
+        </nav>
+      </div>
+      <div class="page-hero__diagonal" aria-hidden="true"></div>
+    </section>
+
+    <!-- ================================================================
+         SETOR 1 — MINERAÇÃO
+         ================================================================ -->
+    <section class="sector-section" id="mineracao" aria-labelledby="min-title">
+      <div class="container">
+        <div class="sector-layout">
+          <div class="sector-image fade-in-left">
+            <img src="assets/images/areas/mineracao.jpg"
+                 alt="Canhão de névoa Suppress controlando poeira em operação de mineração a céu aberto"
+                 width="700" height="525" loading="lazy">
+          </div>
+          <div class="sector-content fade-in-right">
+            <span class="sector-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+              Setor
+            </span>
+            <h2 class="sector-title" id="min-title">Controle de Poeira em Mineração</h2>
+            <p class="sector-desc">
+              A mineração é o setor com maior geração de particulado no Brasil. Pátios de estocagem,
+              britagem, peneiramento, carregamento e descarga de minério geram nuvens de poeira que
+              podem se estender por quilômetros, afetando comunidades vizinhas e trabalhadores.
+            </p>
+            <p class="sector-desc">
+              O impacto vai além do ambiental: autuações do IBAMA, embargos pela FEAM (MG) e processos
+              em órgãos estaduais são frequentes em mineradoras sem sistema de supressão eficiente.
+              A NR-22 (Segurança e Saúde na Mineração) exige controle de agentes físicos como o particulado.
+            </p>
+            <p class="sector-desc">
+              Os canhões de névoa Suppress SP-55, SP-65, SP-150 e Alta Vazão são projetados especificamente
+              para os desafios da mineração: alcance de até 150m, rotação 360°, operação contínua em ambientes
+              de alta poeira e integração com estações meteorológicas para acionamento automático.
+            </p>
+
+            <div class="sector-norms" aria-label="Normas e legislações aplicáveis">
+              <span class="sector-norm">NR-22 — Mineração</span>
+              <span class="sector-norm">CONAMA 03/90</span>
+              <span class="sector-norm">NR-15 — Insalubridade</span>
+              <span class="sector-norm">Resolução FEAM</span>
+              <span class="sector-norm">DN-COPAM 01/2008</span>
+            </div>
+
+            <div class="sector-result">
+              <span class="sector-result-number">95%</span>
+              <p class="sector-result-text">
+                redução média de emissão de particulado em operações de mineração após instalação
+                dos canhões de névoa Suppress
+              </p>
+            </div>
+
+            <a href="index.html#diagnostico" class="btn btn--primary">
+              Solicitar diagnóstico para Mineração
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SETOR 2 — SIDERURGIA
+         ================================================================ -->
+    <section class="sector-section" id="siderurgia" aria-labelledby="sid-title">
+      <div class="container">
+        <div class="sector-layout sector-layout--reverse">
+          <div class="sector-image fade-in-right">
+            <img src="assets/images/areas/siderurgia.jpg"
+                 alt="Canhão de névoa Suppress controlando poeira em aciaria e pátio siderúrgico"
+                 width="700" height="525" loading="lazy">
+          </div>
+          <div class="sector-content fade-in-left">
+            <span class="sector-tag">Setor</span>
+            <h2 class="sector-title" id="sid-title">Controle de Poeira em Siderurgia</h2>
+            <p class="sector-desc">
+              Em aciarias, alto-fornos, pátios de coque e de matéria-prima, a emissão de particulado
+              é um desafio constante. O pó de óxido de ferro, coque e cal gerado nas operações
+              siderúrgicas é altamente nocivo e sujeito a rígida regulamentação ambiental.
+            </p>
+            <p class="sector-desc">
+              Com processos contínuos, 24 horas por dia, a siderurgia exige equipamentos confiáveis
+              e com alta disponibilidade. Os canhões Suppress são construídos para operação contínua
+              em ambientes agressivos com temperaturas extremas e partículas metálicas.
+            </p>
+
+            <div class="sector-norms" aria-label="Normas aplicáveis">
+              <span class="sector-norm">CONAMA 382/06</span>
+              <span class="sector-norm">NR-9 — PPRA</span>
+              <span class="sector-norm">NR-15 — Insalubridade</span>
+              <span class="sector-norm">ISO 14001</span>
+            </div>
+
+            <div class="sector-result">
+              <span class="sector-result-number">80%</span>
+              <p class="sector-result-text">
+                redução de reclamações de vizinhos registrada em siderúrgica de MG após
+                instalação de SP-55 e SP-65 nos pátios de estocagem
+              </p>
+            </div>
+
+            <a href="index.html#diagnostico" class="btn btn--primary">
+              Solicitar diagnóstico para Siderurgia →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SETOR 3 — PORTOS E TERMINAIS
+         ================================================================ -->
+    <section class="sector-section" id="portos" aria-labelledby="port-title">
+      <div class="container">
+        <div class="sector-layout">
+          <div class="sector-image fade-in-left">
+            <img src="assets/images/areas/portos-terminais.jpg"
+                 alt="Controle de poeira em pátio de terminal portuário com canhão de névoa Suppress"
+                 width="700" height="525" loading="lazy">
+          </div>
+          <div class="sector-content fade-in-right">
+            <span class="sector-tag">Setor</span>
+            <h2 class="sector-title" id="port-title">Portos, Pátios e Terminais</h2>
+            <p class="sector-desc">
+              Terminais portuários que movimentam granéis sólidos (minério, carvão, soja, cimento)
+              são fontes significativas de emissão de particulado. A proximidade com áreas urbanas
+              e a exposição de trabalhadores portuários intensifica os riscos e as exigências regulatórias.
+            </p>
+            <p class="sector-desc">
+              A ANTAQ e os órgãos ambientais estaduais exigem planos de controle de emissões para
+              licenciamento de terminais. Os canhões SP-35t, SP-65 e SP-150 são ideais para cobrir
+              grandes pátios e proteger as operações de movimentação.
+            </p>
+
+            <div class="sector-norms" aria-label="Normas aplicáveis">
+              <span class="sector-norm">Resolução ANTAQ</span>
+              <span class="sector-norm">CONAMA 03/90</span>
+              <span class="sector-norm">NBR 10004</span>
+              <span class="sector-norm">NR-29 — Portos</span>
+            </div>
+
+            <div class="sector-result">
+              <span class="sector-result-number">100%</span>
+              <p class="sector-result-text">
+                conformidade ambiental obtida por terminal de granéis em SP após implantação
+                do sistema Suppress — zero autuações nos últimos 24 meses
+              </p>
+            </div>
+
+            <a href="index.html#diagnostico" class="btn btn--primary">
+              Solicitar diagnóstico para Portos →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SETOR 4 — CONSTRUÇÃO CIVIL E DEMOLIÇÃO
+         ================================================================ -->
+    <section class="sector-section" id="construcao" aria-labelledby="constr-title">
+      <div class="container">
+        <div class="sector-layout sector-layout--reverse">
+          <div class="sector-image fade-in-right">
+            <img src="assets/images/areas/construcao.jpg"
+                 alt="Canhão de névoa Suppress controlando poeira em obra de construção civil e demolição"
+                 width="700" height="525" loading="lazy">
+          </div>
+          <div class="sector-content fade-in-left">
+            <span class="sector-tag">Setor</span>
+            <h2 class="sector-title" id="constr-title">Controle de Poeira em Obras — Construção Civil e Demolição</h2>
+            <p class="sector-desc">
+              Obras de grande porte em áreas urbanas enfrentam crescente pressão de moradores,
+              órgãos ambientais e prefeituras. A emissão de poeira de concreto, areia e solo
+              em demolições pode gerar multas, embargos e ações judiciais em poucos dias.
+            </p>
+            <p class="sector-desc">
+              O SP-15 e SP-35 são ideais para canteiros de obra: compactos, com alimentação 220V,
+              baixo consumo de água e fácil reposicionamento. A versão em carretinha permite uso
+              em diferentes frentes de obra sem infraestrutura permanente.
+            </p>
+
+            <div class="sector-norms" aria-label="Normas aplicáveis">
+              <span class="sector-norm">CONAMA 307/02</span>
+              <span class="sector-norm">Lei 12.305/10 (Resíduos)</span>
+              <span class="sector-norm">NR-18 — Construção</span>
+              <span class="sector-norm">Legislações municipais</span>
+            </div>
+
+            <div class="sector-result">
+              <span class="sector-result-number">72h</span>
+              <p class="sector-result-text">
+                tempo médio entre a solicitação e a entrega técnica em obras de construção —
+                resposta rápida para adequação imediata
+              </p>
+            </div>
+
+            <a href="index.html#diagnostico" class="btn btn--primary">
+              Solicitar diagnóstico para Construção →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SETOR 5 — INDÚSTRIAS EM GERAL
+         ================================================================ -->
+    <section class="sector-section" id="industrias" aria-labelledby="ind-title">
+      <div class="container">
+        <div class="sector-layout">
+          <div class="sector-image fade-in-left">
+            <img src="assets/images/areas/industrias.jpg"
+                 alt="Controle de particulado em indústria pesada com canhão de névoa Suppress"
+                 width="700" height="525" loading="lazy">
+          </div>
+          <div class="sector-content fade-in-right">
+            <span class="sector-tag">Setor</span>
+            <h2 class="sector-title" id="ind-title">Indústrias em Geral</h2>
+            <p class="sector-desc">
+              Além dos setores tradicionais, a Suppress atende indústrias de cimento, celulose,
+              agrícolas, pátios de sucata, usinas de asfalto, aterros sanitários e qualquer operação
+              onde o controle de particulado seja crítico para compliance ambiental e segurança.
+            </p>
+            <p class="sector-desc">
+              Cada aplicação tem suas especificidades — granulometria do particulado, distâncias,
+              condições de vento e restrições elétricas. Nossa equipe de engenharia dimensiona
+              a solução correta para cada cenário, independente do setor.
+            </p>
+
+            <div class="sector-norms" aria-label="Normas aplicáveis">
+              <span class="sector-norm">CONAMA 03/90</span>
+              <span class="sector-norm">NR-15 — Insalubridade</span>
+              <span class="sector-norm">NR-9 — PPRA</span>
+              <span class="sector-norm">Legislação estadual</span>
+            </div>
+
+            <div class="sector-result">
+              <span class="sector-result-number">5+</span>
+              <p class="sector-result-text">
+                setores industriais diferentes atendidos com soluções customizadas —
+                nossa expertise vai além da mineração
+              </p>
+            </div>
+
+            <a href="index.html#diagnostico" class="btn btn--primary">
+              Solicitar diagnóstico para minha indústria →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         CTA FINAL
+         ================================================================ -->
+    <section class="section section--primary" aria-labelledby="areas-cta-title">
+      <div class="container" style="text-align:center;max-width:800px;margin:0 auto;">
+        <div class="fade-in">
+          <span class="section-label" style="color:rgba(255,255,255,0.7);">Seu setor tem solução</span>
+          <h2 class="section-title" id="areas-cta-title" style="color:var(--color-white);">
+            Qual é o seu desafio de poeira?
+          </h2>
+          <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);margin-bottom:2rem;line-height:1.7;">
+            Independente do setor ou tamanho da operação, temos engenheiros especializados para
+            dimensionar a solução ideal e calcular o ROI para você.
+          </p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="index.html#diagnostico" class="btn btn--dark btn--lg">Diagnóstico Gratuito em 48h</a>
+            <a href="produtos.html" class="btn btn--outline-white btn--lg">Ver todos os produtos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-col">
+        <img class="f-logo" src="assets/home/images/logo-white.png" alt="Suppress — Tecnologia e Sustentabilidade">
+        <p class="f-about">Única fabricante brasileira especializada em canhões de névoa para supressão de poeira industrial. Tecnologia, sustentabilidade e operações em conformidade desde 2014.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="institucional.html">Institucional</a></li>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="areas.html">Áreas de Atuação</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="areas.html#mineracao">Mineração</a></li>
+          <li><a href="areas.html#siderurgia">Siderurgia</a></li>
+          <li><a href="areas.html#portos">Portos e Terminais</a></li>
+          <li><a href="areas.html#construcao">Construção</a></li>
+          <li><a href="produtos.html">Canhões de Névoa</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contato</h4>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Rua Ontário, 618 — Jardim Canadá, Nova Lima/MG</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (31) 2510-9600</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> comercial@suppress.com.br</li>
+        </ul>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/suppress/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+          <a href="https://www.instagram.com/suppress.oficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 8.34a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> Suppress Tecnologia e Sustentabilidade &middot; CNPJ 20.504.737/0001-59</span>
+      <a href="#">Política de Privacidade (LGPD)</a>
+    </div>
+  </div>
+</footer>
+
+  <a class="wa-float" href="https://wa.me/553125109600?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20controle%20de%20poeira" target="_blank" rel="noopener" aria-label="Falar com especialista no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.027zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  <span>Falar com especialista</span>
+</a>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+<script src="assets/home/js/main.js"></script>
+</body>
+</html>

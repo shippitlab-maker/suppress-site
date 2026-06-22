@@ -1,0 +1,22 @@
+# Pastas de origem (já copiadas para assets/)
+IMAGENS/
+EQUIPAMENTOS/
+ANTES E DEPOIS/
+Clientes (3)/
+HOME/
+TELA DE CARREGAMENTO/
+official-area-pages/
+
+# Arquivos de backup/obsoletos
+index.before-home-folder.html
+areas-oficial-suppress.html
+clientes-suppress.html
+
+# Claude/editor config
+.claude/
+.codex-local-server.js
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini

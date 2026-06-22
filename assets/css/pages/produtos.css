@@ -1,0 +1,302 @@
+/* ================================================================
+   SUPPRESS — Produtos Page Styles
+   ================================================================ */
+
+.products-hero {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #0d0d0d 100%);
+}
+
+/* Product line section */
+.product-line-section {
+  padding: var(--sp-16) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-line-section:last-of-type { border-bottom: none; }
+
+.product-line-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: var(--sp-8);
+}
+
+.product-line-label::after {
+  content: '';
+  flex: 1;
+  min-width: 40px;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+/* Full product detail card */
+.product-detail-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: box-shadow var(--t-slow);
+}
+
+@media (min-width: 768px) {
+  .product-detail-card { grid-template-columns: 1fr 1fr; }
+}
+
+.product-detail-card:hover { box-shadow: var(--shadow-lg); }
+
+.product-detail-card__image {
+  background: var(--color-dark);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow);
+}
+
+.product-detail-card:hover .product-detail-card__image img { transform: scale(1.04); }
+
+.product-detail-card__body {
+  padding: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail-card__sku {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.product-detail-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1;
+  margin-bottom: var(--sp-2);
+}
+
+.product-detail-card__tagline {
+  font-size: var(--text-base);
+  color: var(--color-gray);
+  margin-bottom: var(--sp-6);
+  line-height: 1.5;
+}
+
+.product-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.product-spec-item {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-4);
+}
+
+.product-spec-item__label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gray);
+  display: block;
+  margin-bottom: var(--sp-1);
+}
+
+.product-spec-item__value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1;
+  display: block;
+}
+
+.product-spec-item__unit {
+  font-size: var(--text-xs);
+  color: var(--color-gray);
+}
+
+.product-sectors-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+}
+
+.product-sector-tag {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-dark-mid);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* Accessories section */
+.accessories-section {
+  background: var(--color-bg);
+  padding: var(--sp-20) 0;
+}
+
+.accessory-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--t-slow), transform var(--t-slow);
+}
+
+.accessory-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.accessory-card__icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,102,0,0.1);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--sp-4);
+  color: var(--color-primary);
+}
+
+.accessory-card__icon svg { width: 30px; height: 30px; }
+
+.accessory-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* Services section */
+.services-section {
+  background: var(--color-white);
+  padding: var(--sp-20) 0;
+}
+
+.service-card {
+  display: flex;
+  gap: var(--sp-5);
+  padding: var(--sp-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--t), box-shadow var(--t);
+}
+
+.service-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
+}
+
+.service-card__icon {
+  width: 52px;
+  height: 52px;
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.service-card__icon svg { width: 26px; height: 26px; }
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: var(--sp-2);
+}
+
+.service-card__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================================================================
+   FAQ ACCORDION
+   ================================================================ */
+
+.faq-section {
+  background: var(--color-bg);
+  padding: var(--sp-20) 0;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--sp-5) var(--sp-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--color-dark);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-primary);
+  transition: transform var(--t);
+  line-height: 1;
+}
+
+.faq-item[open] summary::after { transform: rotate(45deg); }
+
+.faq-item__answer {
+  padding: 0 var(--sp-6) var(--sp-6);
+  color: var(--color-gray);
+  line-height: 1.7;
+}

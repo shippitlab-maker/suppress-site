@@ -1,0 +1,306 @@
+/* ================================================================
+   ARTICLE / CASE STUDY PAGES
+   Estilos para conteúdo longo: páginas de blog e cases individuais
+   ================================================================ */
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-10);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .article-layout--sidebar {
+    max-width: none;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+}
+
+.article-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+  font-size: var(--text-sm);
+  color: var(--color-gray);
+  margin-bottom: var(--sp-6);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-meta-bar__category {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,102,0,0.1);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.article-cover {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--sp-8);
+  aspect-ratio: 16/9;
+  background: var(--color-dark);
+}
+
+.article-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ----------------------------------------------------------------
+   PROSE — tipografia para corpo de texto
+   ---------------------------------------------------------------- */
+
+.prose {
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-dark-mid);
+}
+
+.prose > * + * { margin-top: var(--sp-5); }
+
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-top: var(--sp-10);
+  line-height: 1.25;
+}
+
+.prose h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-top: var(--sp-8);
+}
+
+.prose p { margin-top: var(--sp-4); }
+
+.prose ul, .prose ol {
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.prose li { padding-left: 0.3em; }
+
+.prose strong { color: var(--color-dark); font-weight: 600; }
+
+.prose a { color: var(--color-primary); text-decoration: underline; text-decoration-color: rgba(255,102,0,0.35); }
+.prose a:hover { text-decoration-color: var(--color-primary); }
+
+.prose blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding: var(--sp-2) 0 var(--sp-2) var(--sp-5);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-dark);
+  margin: var(--sp-6) 0;
+}
+
+.prose figure { margin: var(--sp-6) 0; }
+.prose figure img { width: 100%; border-radius: var(--radius); display: block; }
+.prose figcaption {
+  font-size: var(--text-xs);
+  color: var(--color-gray);
+  margin-top: var(--sp-2);
+  text-align: center;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--sp-8) 0;
+}
+
+/* ----------------------------------------------------------------
+   STATS STRIP (resultados do case)
+   ---------------------------------------------------------------- */
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  margin: var(--sp-8) 0;
+}
+
+@media (min-width: 640px) {
+  .result-stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.result-stat {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  padding: var(--sp-5) var(--sp-3);
+  text-align: center;
+}
+
+.result-stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.result-stat__label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+}
+
+/* ----------------------------------------------------------------
+   CTA BOX dentro do artigo
+   ---------------------------------------------------------------- */
+
+.inline-cta {
+  background: var(--color-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-8);
+  text-align: center;
+  margin: var(--sp-10) 0;
+}
+
+.inline-cta h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-bottom: var(--sp-2);
+}
+
+.inline-cta p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: var(--sp-5);
+}
+
+/* ----------------------------------------------------------------
+   TAGS / SETORES
+   ---------------------------------------------------------------- */
+
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.article-tag {
+  background: var(--color-bg);
+  color: var(--color-dark-mid);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+/* ----------------------------------------------------------------
+   RELATED GRID (cases/posts relacionados)
+   ---------------------------------------------------------------- */
+
+.related-heading {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: var(--sp-6);
+}
+
+/* ----------------------------------------------------------------
+   CLIENT LOGOS GRID (página Clientes)
+   ---------------------------------------------------------------- */
+
+.client-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+}
+
+@media (min-width: 640px) {
+  .client-logos-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .client-logos-grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+}
+
+.client-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6) var(--sp-4);
+  text-align: center;
+  text-decoration: none;
+  transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast);
+}
+
+.client-logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--color-primary);
+}
+
+.client-logo-card img {
+  width: 64px;
+  height: 64px;
+}
+
+.client-logo-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-dark);
+}
+
+.client-logo-card__sector {
+  font-size: var(--text-xs);
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ----------------------------------------------------------------
+   SECTOR BADGES (lista de setores atendidos)
+   ---------------------------------------------------------------- */
+
+.sector-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+  margin-top: var(--sp-8);
+}
+
+.sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--color-bg);
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--radius-full);
+}
+
+@media (min-width: 800px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
