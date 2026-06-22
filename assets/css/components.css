@@ -213,8 +213,94 @@
 
 /* NAVIGATION + FOOTER removidos — usa assets/home/css/main.css */
 
+/* Institucional — Nossa História */
+.inst-historia{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,64px);align-items:center}
+.inst-historia__text p{margin-bottom:1.25rem;line-height:1.7;color:var(--color-gray)}
+.inst-historia__text p:last-child{margin-bottom:0}
+.inst-historia__img img{width:100%;height:auto;max-height:400px;object-fit:cover;border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.12)}
+@media (max-width:860px){.inst-historia{grid-template-columns:1fr}.inst-historia__img{order:-1}}
+
 /* Team cards hover (substitui inline onmouseover) */
 .grid-4 .fade-in:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+
+/* ================================================================
+   MVV — Missão, Visão, Valores, Crenças (layout editorial)
+   ================================================================ */
+.mvv-section{
+  position:relative;padding:clamp(80px,10vw,140px) 0;overflow:hidden;
+  color:#fff;
+}
+.mvv-bg{
+  position:absolute;inset:0;z-index:0;
+  background:#3B3B3B;
+}
+
+/* MVV horizontal — conteúdo acima/abaixo da linha, alternado */
+.mvv-h{max-width:1100px;margin:0 auto}
+
+/* Rows acima e abaixo: 4 colunas iguais */
+.mvv-h__above,.mvv-h__below{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);
+}
+.mvv-h__above{align-items:end;padding-bottom:clamp(20px,2.5vw,32px)}
+.mvv-h__below{align-items:start;padding-top:clamp(20px,2.5vw,32px)}
+.mvv-h__spacer{/* coluna vazia */}
+
+.mvv-h__item{text-align:center}
+.mvv-h__title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.4rem,2vw,1.9rem);
+  text-transform:uppercase;letter-spacing:.03em;
+  color:#fff;margin-bottom:clamp(8px,1vw,14px);
+}
+.mvv-h__text{
+  font-size:clamp(.84rem,.95vw,.92rem);line-height:1.7;
+  color:rgba(255,255,255,.65);margin:0;
+}
+
+/* Linha horizontal com 4 dots */
+.mvv-h__rail{
+  position:relative;display:flex;
+  align-items:center;justify-content:space-between;
+  padding:0 calc(12.5% - 7px);
+}
+.mvv-h__line{
+  position:absolute;left:0;right:0;top:50%;height:1.5px;
+  background:linear-gradient(90deg,transparent 2%,var(--color-primary) 10%,var(--color-primary) 90%,transparent 98%);
+  transform:translateY(-50%);
+}
+.mvv-h__dot{
+  width:14px;height:14px;border-radius:50%;flex:none;
+  background:var(--color-primary);border:2px solid #252930;
+  box-shadow:0 0 0 4px rgba(255,102,0,.18);
+  position:relative;z-index:1;
+}
+
+/* Valores pills */
+.mvv-values{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:320px;margin:0 auto}
+.mvv-values span{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  font-size:.82rem;font-weight:500;color:rgba(255,255,255,.9);
+  padding:6px 14px;border-radius:50px;white-space:nowrap;
+  background:rgba(255,102,0,.12);border:1px solid rgba(255,102,0,.2);
+  transition:background .25s,border-color .25s;
+}
+.mvv-values span:hover{background:rgba(255,102,0,.22);border-color:rgba(255,102,0,.4)}
+.mvv-values span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--color-primary);flex:none}
+
+@media (max-width:760px){
+  .mvv-h__above,.mvv-h__below{grid-template-columns:1fr 1fr;gap:16px}
+  .mvv-h__spacer{display:none}
+  .mvv-h__rail{padding:0 calc(25% - 7px)}
+  .mvv-h__dot:nth-child(3),.mvv-h__dot:nth-child(4){display:none}
+  .mvv-h__below{padding-top:clamp(24px,4vw,36px)}
+  .mvv-h__above{padding-bottom:clamp(24px,4vw,36px)}
+}
+@media (max-width:480px){
+  .mvv-h__above,.mvv-h__below{grid-template-columns:1fr}
+  .mvv-h__rail{display:none}
+  .mvv-h__above,.mvv-h__below{padding:0;gap:32px}
+}
 
 /* ================================================================
    CARDS

@@ -194,11 +194,11 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.25rem, 5.5vw, var(--text-6xl)); }
-h2 { font-size: clamp(1.75rem, 3.5vw, var(--text-5xl)); }
-h3 { font-size: clamp(1.25rem, 2.5vw, var(--text-3xl)); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
+h1 { font-size: clamp(1.8rem, 3vw, 2.85rem); }
+h2 { font-size: clamp(1.6rem, 2.7vw, 2.4rem); line-height:1.14; }
+h3 { font-size: clamp(1.15rem, 1.8vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1rem; }
 
 p {
   line-height: 1.7;
@@ -298,10 +298,10 @@ strong { font-weight: 500; }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, var(--text-5xl));
+  font-size: clamp(1.6rem, 2.7vw, 2.4rem);
   font-weight: 600;
   color: var(--color-dark);
-  line-height: 1.1;
+  line-height: 1.14;
   margin-bottom: var(--sp-4);
 }
 
@@ -420,6 +420,48 @@ strong { font-weight: 500; }
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
 .delay-5 { transition-delay: 0.5s; }
+
+/* Efeitos adicionais de scroll */
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(.92);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-in-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-in-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(20px);
+  transition: opacity .7s ease, filter .7s ease, transform .7s ease;
+}
+.fade-in-blur.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Parallax suave via JS */
+[data-scroll-speed] {
+  will-change: transform;
+}
+
+/* Contador animado */
+.stat-number {
+  transition: color .3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-in-left, .fade-in-right, .fade-in-scale, .fade-in-blur {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
 
 /* ================================================================
    UTILITY CLASSES

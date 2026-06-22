@@ -102,6 +102,72 @@
   }
 
   /* ----------------------------------------------------------------
+     SCROLL PARALLAX for inner pages
+     ---------------------------------------------------------------- */
+  const parallaxEls = document.querySelectorAll('[data-scroll-speed]');
+  if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let pTicking = false;
+    function updateParallax() {
+      pTicking = false;
+      const vh = window.innerHeight;
+      parallaxEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const speed = parseFloat(el.dataset.scrollSpeed) || 0.05;
+        const center = rect.top + rect.height / 2 - vh / 2;
+        el.style.transform = 'translateY(' + (center * speed * -1).toFixed(1) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', function () {
+      if (!pTicking) { pTicking = true; requestAnimationFrame(updateParallax); }
+    }, { passive: true });
+    updateParallax();
+  }
+
+  /* ----------------------------------------------------------------
+     PAGE HERO parallax (background fades/shifts on scroll)
+     ---------------------------------------------------------------- */
+  const pageHero = document.querySelector('.page-hero');
+  if (pageHero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let hTicking = false;
+    function heroParallax() {
+      hTicking = false;
+      const s = window.pageYOffset;
+      const h = pageHero.offsetHeight;
+      if (s > h + 200) return;
+      pageHero.style.transform = 'translateY(' + (s * 0.3).toFixed(1) + 'px)';
+      pageHero.style.opacity = Math.max(0, 1 - s / (h * 0.8)).toFixed(3);
+    }
+    window.addEventListener('scroll', function () {
+      if (!hTicking) { hTicking = true; requestAnimationFrame(heroParallax); }
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------------
+     SECTION SCALE-IN on scroll (sections grow from 95% to 100%)
+     ---------------------------------------------------------------- */
+  const scaleSections = document.querySelectorAll('[data-scroll-scale]');
+  if (scaleSections.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const scaleObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = 'scale(1)';
+          entry.target.style.opacity = '1';
+          scaleObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    scaleSections.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) return;
+      el.style.transform = 'scale(0.96)';
+      el.style.opacity = '0.5';
+      el.style.transition = 'transform 0.8s cubic-bezier(.4,0,.2,1), opacity 0.8s ease';
+      scaleObs.observe(el);
+    });
+  }
+
+  /* ----------------------------------------------------------------
      PROGRESS BAR ON BLOG / ARTICLE PAGES
      ---------------------------------------------------------------- */
   const progressBar = document.querySelector('.reading-progress');

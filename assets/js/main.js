@@ -100,7 +100,7 @@
   /* ----------------------------------------------------------------
      INTERSECTION OBSERVER — fade-in animations
      ---------------------------------------------------------------- */
-  const fadeEls = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+  const fadeEls = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale, .fade-in-blur');
 
   if (fadeEls.length && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
@@ -112,12 +112,11 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 0px 0px' }
     );
 
     fadeEls.forEach(el => observer.observe(el));
   } else {
-    // Fallback: show all immediately
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
