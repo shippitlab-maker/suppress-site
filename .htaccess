@@ -1,0 +1,49 @@
+# ================================================================
+# SUPPRESS — Apache Configuration
+# Cache, compression, security headers
+# ================================================================
+
+# --- GZIP / BROTLI COMPRESSION ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- BROWSER CACHING ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType application/json "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Cache-Control for static assets
+  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # --- SECURITY HEADERS ---
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- WEBP MIME TYPE ---
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# --- CUSTOM ERROR PAGE ---
+ErrorDocument 404 /404.html

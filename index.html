@@ -16,12 +16,21 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.suppress.com.br/assets/home/images/hero-bg.jpg">
+<meta name="theme-color" content="#FF6600">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="alternate" hreflang="pt-BR" href="https://www.suppress.com.br/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="image" href="assets/home/images/hero-bg.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/home/css/main.css?v=19">
-<link rel="stylesheet" href="assets/home/css/home.css?v=47">
+<link rel="stylesheet" href="assets/home/css/home.css?v=49">
 
 <script type="application/ld+json">
 {
@@ -39,6 +48,15 @@
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Suppress","url":"https://www.suppress.com.br/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"O que é um canhão de névoa e como ele controla a poeira?","acceptedAnswer":{"@type":"Answer","text":"Um canhão de névoa projeta microgotículas de água que capturam partículas de poeira em suspensão, fazendo-as precipitar. A tecnologia reduz até 95% das emissões de particulado em mineração, siderurgia, portos e construção."}},
+  {"@type":"Question","name":"Os canhões Suppress são fabricados no Brasil?","acceptedAnswer":{"@type":"Answer","text":"Sim. Toda a linha SP é projetada e fabricada nacionalmente, garantindo peças de reposição disponíveis, suporte técnico ágil e prazos de entrega menores que equipamentos importados."}},
+  {"@type":"Question","name":"É possível alugar um canhão de névoa em vez de comprar?","acceptedAnswer":{"@type":"Answer","text":"Sim. A Suppress oferece locação com suporte técnico incluso, ideal para projetos temporários ou para validar o resultado antes de uma aquisição definitiva."}},
+  {"@type":"Question","name":"Qual canhão de névoa é ideal para a minha operação?","acceptedAnswer":{"@type":"Answer","text":"Depende da área, da intensidade da poeira e das condições de vento. Modelos compactos como o SP-15 atendem obras e confinados; SP-55, SP-65 e SP-150 cobrem grandes pátios. A equipe técnica da Suppress faz um diagnóstico gratuito e recomenda o modelo correto."}},
+  {"@type":"Question","name":"A Suppress oferece diagnóstico gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim. Realizamos avaliação técnica gratuita da emissão de poeira com relatório de não conformidades, risco de autuação e recomendação de solução personalizada com ROI calculado."}}
+]}
 </script>
 </head>
 <body>
@@ -95,7 +113,10 @@
 <!-- ================= 1. HERO (banner com foto de fundo) ================= -->
 <section class="hero" data-screen-label="Hero">
   <div class="hero__bg">
-    <img src="assets/home/images/hero-bg.jpg" alt="Canhão de névoa Suppress em operação suprimindo poeira em pátio industrial, com arco-íris formado pela névoa" width="1920" height="1080">
+    <picture>
+      <source srcset="assets/home/images/hero-bg.webp" type="image/webp">
+      <img src="assets/home/images/hero-bg.jpg" alt="Canhão de névoa Suppress em operação suprimindo poeira em pátio industrial, com arco-íris formado pela névoa" width="1920" height="1080" fetchpriority="high">
+    </picture>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -408,55 +429,75 @@
   </div>
 </section>
 
-<!-- ================= 5. PRODUTOS — showcase ================= -->
-<div class="equip-stage">
-<div class="equip-pin">
-<section class="equip-section" data-screen-label="Produtos">
-  <div class="equip-inner">
-      <div class="equip-info">
-        <span class="eyebrow">Linha de produtos</span>
-        <div class="equip-info__model"><span class="equip-tag"></span><h2 class="equip-name"></h2></div>
-        <p class="equip-desc"></p>
-        <a href="produtos.html" class="btn btn--primary equip-cta">Solicitar proposta
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <div class="equip-nav">
-          <button class="equip-prev" type="button" aria-label="Equipamento anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-          <button class="equip-next" type="button" aria-label="Próximo equipamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
-          <div class="equip-counter"><span class="equip-cur">01</span> / <span class="equip-tot">08</span></div>
-        </div>
-      </div>
-      <div class="equip-viewport">
-        <div class="equip-track" id="equip-track">
-          <div class="equip-slide equip-slide--full" data-scale="1" data-tag="Evaporador · Extra grande" data-name="SP-150e" data-desc="O maior evaporador da linha, com alcance de até 150 m. Projetado para evaporação forçada de efluentes em barragens de rejeitos.">
-            <img src="assets/images/equipamentos/sp-150e.png" alt="Canhão de névoa SP-150e" loading="lazy">
-          </div>
-          <div class="equip-slide equip-slide--wide" data-scale="1.3" data-tag="Solução móvel" data-name="Conjunto Móvel" data-desc="Unidade autônoma sobre carreta com reservatório integrado — pronto para operar em qualquer local.">
-            <img src="assets/images/equipamentos/conjunto-movel.png" alt="Conjunto Móvel Suppress" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.85" data-tag="Grande porte" data-name="SP-65" data-desc="Alta capacidade de supressão para mineração a céu aberto e grandes áreas industriais.">
-            <img src="assets/images/equipamentos/sp-65.png" alt="Canhão de névoa SP-65" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.85" data-tag="Evaporador · Grande porte" data-name="SP-65e" data-desc="Evaporador de grande porte para evaporação forçada de efluentes em barragens de rejeitos e manejo hídrico industrial.">
-            <img src="assets/images/equipamentos/sp-65e.png" alt="Canhão evaporador SP-65e" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.78" data-tag="Médio-grande" data-name="SP-55" data-desc="Alcance intermediário para grandes pátios de estocagem e operações portuárias.">
-            <img src="assets/images/equipamentos/sp-55.png" alt="Canhão de névoa SP-55" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.70" data-tag="Médio porte" data-name="SP-35" data-desc="Canhão de médio alcance para siderurgia, mineração e operações com particulado moderado.">
-            <img src="assets/images/equipamentos/sp-35.png" alt="Canhão de névoa SP-35" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.65" data-tag="Construção Civil" data-name="Nimbus" data-desc="Canhão de névoa compacto projetado para abatimento de poeira em canteiros de obras, demolições e frentes de trabalho da construção civil.">
-            <img src="assets/images/equipamentos/nimbus.png" alt="Canhão climatizador Nimbus" loading="lazy">
-          </div>
-          <div class="equip-slide" data-scale="0.55" data-tag="Compacto" data-name="SP-15" data-desc="Canhão compacto sobre rodas, ideal para obras, pátios e frentes de trabalho de menor porte.">
-            <img src="assets/images/equipamentos/sp-15.png" alt="Canhão de névoa SP-15" loading="lazy">
-          </div>
-        </div>
-      </div>
+<!-- ================= 5. PRODUTOS — showcase (mesmo componente da página Produtos) ================= -->
+<section class="product-showcase" id="produtos-showcase" data-screen-label="Produtos" aria-roledescription="carrossel" aria-label="Linha de produtos Suppress">
+  <div class="showcase__glow" aria-hidden="true"></div>
+  <div class="showcase__grid-bg" aria-hidden="true"></div>
+
+  <div class="container showcase__inner">
+
+    <!-- PAINEL DE INFORMAÇÕES (atualizado via JS) -->
+    <div class="ps-info is-swap" aria-live="polite">
+      <span class="ps-info__line" data-line>Evaporador · Extra grande</span>
+      <h2 class="ps-info__name" data-name>SP-<b>150e</b></h2>
+      <p class="ps-info__tagline" data-tagline>O maior evaporador da linha, com alcance de até 150 m. Projetado para evaporação forçada de efluentes em barragens de rejeitos.</p>
+      <a class="btn btn--primary ps-info__cta" data-cta href="#diagnostico">
+        <span class="ps-info__cta-txt">Solicitar Proposta para SP-150e</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
+
+    <!-- PALCO DO PRODUTO -->
+    <div class="ps-stage">
+      <span class="ps-stage__ghost" data-ghost aria-hidden="true">150</span>
+      <div class="ps-stage__imgs">
+        <img class="ps-img is-active" data-img="0" src="assets/images/equipamentos/sp-150e.webp"      alt="Canhão de névoa SP-150e" width="700" height="525">
+        <img class="ps-img ps-img--wide" data-img="1" src="assets/images/equipamentos/conjunto-movel.webp" alt="Conjunto Móvel Suppress" width="700" height="525" loading="lazy">
+        <img class="ps-img"           data-img="2" src="assets/images/equipamentos/sp-65.webp"          alt="Canhão de névoa SP-65" width="700" height="525" loading="lazy">
+        <img class="ps-img"           data-img="3" src="assets/images/equipamentos/sp-65e.webp"         alt="Canhão evaporador SP-65e" width="700" height="525" loading="lazy">
+        <img class="ps-img"           data-img="4" src="assets/images/equipamentos/sp-55.webp"          alt="Canhão de névoa SP-55" width="700" height="525" loading="lazy">
+        <img class="ps-img"           data-img="5" src="assets/images/equipamentos/sp-35.webp"          alt="Canhão de névoa SP-35" width="700" height="525" loading="lazy">
+        <img class="ps-img"           data-img="6" src="assets/images/equipamentos/sp-15.webp"          alt="Canhão de névoa SP-15" width="700" height="525" loading="lazy">
+      </div>
+      <div class="ps-stage__shadow" aria-hidden="true"></div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="container showcase__controls">
+    <button class="ps-nav ps-nav--prev" type="button" aria-label="Produto anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+
+    <div class="ps-thumbs" role="tablist" aria-label="Selecionar produto">
+      <button class="ps-thumb is-active" type="button" role="tab" aria-selected="true"  data-thumb="0" aria-label="SP-150e"><img src="assets/images/equipamentos/sp-150e.webp"      alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="1" aria-label="Conjunto Móvel"><img src="assets/images/equipamentos/conjunto-movel.webp" alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="2" aria-label="SP-65"><img src="assets/images/equipamentos/sp-65.webp"          alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="3" aria-label="SP-65e"><img src="assets/images/equipamentos/sp-65e.webp"         alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="4" aria-label="SP-55"><img src="assets/images/equipamentos/sp-55.webp"          alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="5" aria-label="SP-35"><img src="assets/images/equipamentos/sp-35.webp"          alt="" loading="lazy"></button>
+      <button class="ps-thumb"           type="button" role="tab" aria-selected="false" data-thumb="6" aria-label="SP-15"><img src="assets/images/equipamentos/sp-15.webp"          alt="" loading="lazy"></button>
+    </div>
+
+    <button class="ps-nav ps-nav--next" type="button" aria-label="Próximo produto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+
+    <div class="ps-counter"><span data-current>01</span><span class="ps-counter__sep">/</span><span class="ps-counter__total">07</span></div>
+  </div>
+
+  <!-- Dados do carrossel (lidos por assets/js/produtos.js) -->
+  <script type="application/json" id="ps-products">[
+    {"line":"Evaporador · Extra grande","name":"SP-150e","ghost":"150","tagline":"O maior evaporador da linha, com alcance de até 150 m. Projetado para evaporação forçada de efluentes em barragens de rejeitos."},
+    {"line":"Solução móvel","name":"Conjunto Móvel","ghost":"","tagline":"Unidade autônoma sobre carreta com reservatório integrado — pronto para operar em qualquer local."},
+    {"line":"Grande porte","name":"SP-65","ghost":"65","tagline":"Alta capacidade de supressão para mineração a céu aberto e grandes áreas industriais."},
+    {"line":"Evaporador · Grande porte","name":"SP-65e","ghost":"65","tagline":"Evaporador de grande porte para evaporação forçada de efluentes em barragens de rejeitos e manejo hídrico industrial."},
+    {"line":"Médio-grande","name":"SP-55","ghost":"55","tagline":"Alcance intermediário para grandes pátios de estocagem e operações portuárias."},
+    {"line":"Médio porte","name":"SP-35","ghost":"35","tagline":"Canhão de médio alcance para siderurgia, mineração e operações com particulado moderado."},
+    {"line":"Compacto","name":"SP-15","ghost":"15","tagline":"Canhão compacto sobre rodas, ideal para obras, pátios e frentes de trabalho de menor porte."}
+  ]</script>
 </section>
-</div>
-</div>
 
 <!-- ================= 5.5 ANTES E DEPOIS (eraser reveal) ================= -->
 <section class="section section--bg ba-section" data-screen-label="Antes e Depois">
@@ -502,62 +543,24 @@
       <span class="eyebrow eyebrow--center">Prova social</span>
       <h2>Confiança de grandes operações industriais</h2>
     </div>
-    <div class="quote-carousel reveal reveal--blur" id="quote-carousel">
-      <div class="quote-deck" id="quote-deck">
-      <div class="quote-slide is-active">
-        <blockquote>A experiência com a Suppress é sempre positiva. O atendimento, tanto na pré, quanto na pós-venda, é ágil, claro e orientado à solução. Os equipamentos entregues apresentam excelente desempenho, dentro dos parâmetros técnicos esperados e com alta confiabilidade. Destaca-se ainda o compromisso da empresa com a responsabilidade ambiental, refletido em suas práticas e na escolha dos produtos ofertados.</blockquote>
-        <div class="by"><b>Marlon Gomes</b>Engenharia de Implantação e Projetos · Porto Sudeste</div>
+    <div class="dep-carousel reveal" id="dep-carousel">
+      <div class="dep-track" id="dep-track">
+        <div class="dep-slide"><p>A experiência com a Suppress é sempre positiva. O atendimento, tanto na pré, quanto na pós-venda, é ágil, claro e orientado à solução. Os equipamentos entregues apresentam excelente desempenho, dentro dos parâmetros técnicos esperados e com alta confiabilidade.</p><div class="dep-author"><strong>Marlon Gomes</strong><span>Engenharia de Implantação e Projetos · Porto Sudeste</span></div></div>
+        <div class="dep-slide"><p>Gostaria de expressar nosso reconhecimento pela excelência no atendimento prestado pela equipe da SUPPRESS. Sempre fomos atendidos com agilidade, profissionalismo e atenção. Os canhões têm se mostrado altamente eficientes, atendendo perfeitamente às nossas necessidades operacionais.</p><div class="dep-author"><strong>Leandro Santos</strong><span>Pátio de Matérias Primas · ArcelorMittal Tubarão</span></div></div>
+        <div class="dep-slide"><p>Hoje, na empresa, os canhões de névoa são fundamentais para atender as demandas ambientais em nossa planta de beneficiamento de calcário. Equipe sempre a disposição para nos atender.</p><div class="dep-author"><strong>Edney Benício Moreira</strong><span>Beneficiamento de Calcário · Lhoist</span></div></div>
+        <div class="dep-slide"><p>Conhecemos a SUPPRESS em julho de 2021, fizemos um primeiro contato para testar o equipamento deles para abatimento de particulados nas operações de nosso aterro industrial, ficamos muito satisfeitos com os testes realizados e desde então já adquirimos 2 equipamentos. Eles sempre nos atendem da melhor forma possível e além de equipamentos excelentes, possuem uma equipe técnica muito qualificada.</p><div class="dep-author"><strong>Bianca Martins</strong><span>Engenheira · Tupy</span></div></div>
+        <div class="dep-slide"><p>Estamos trabalhando com a Suppress desde 2019, em uma parceria em que foram realizadas locações e compras de equipamentos. A Equipe Suppress sempre esteve disponível e oferecendo um grande suporte pós-venda, nos auxiliando a atender os objetivos estabelecidos para o projeto.</p><div class="dep-author"><strong>Raul Baêta</strong><span>Engenheiro Mecânico · Usiminas</span></div></div>
+        <div class="dep-slide"><p>Estamos trabalhando com a Suppress desde Outubro de 2016 com dois conjuntos de Canhões de Névoa para supressão de poeira. Ao longo deste período a Suppress tem demostrado conhecimento técnico, eficiência e profissionalismo. Estamos muito satisfeitos com esta parceria.</p><div class="dep-author"><strong>Monique Bodard</strong><span>Fundação Renova</span></div></div>
+        <div class="dep-slide"><p>A Suppress nos atendeu muito bem construindo um projeto em conjunto para viabilizar a instalação do canhão de névoa em nossa operação. Mesmo após aquisição a empresa mantém o suporte técnico necessário.</p><div class="dep-author"><strong>Renan Eliotério Marques</strong><span>Área Portuária · Gerdau Vitória</span></div></div>
+        <div class="dep-slide"><p>A Equipe da Suppress nos atendem muito bem. Sempre dispostos a nos ajudar na resolução de problemas.</p><div class="dep-author"><strong>Elio de Sena Sousa</strong><span>Pátio de Carvão · Usiminas Ipatinga</span></div></div>
+        <div class="dep-slide"><p>Gostaria de agradecer a toda equipe da Suppress em nome da Sigma Lithium. Quero salientar que os canhões de névoa fornecidos, foram muito eficientes e o suporte técnico é rápido quando precisamos!</p><div class="dep-author"><strong>Ronaldo Lopes</strong><span>Usina de Beneficiamento · Sigma Lithium</span></div></div>
+        <div class="dep-slide"><p>Ao utilizar um equipamento da Suppress no abatimento da poeira no processo de demolição do piso industrial na VSB Tubos, obtivemos um excelente resultado, com abatimento muito mais efetivo, consumo de água muito menor e piso menos encharcado, sem geração de lama.</p><div class="dep-author"><strong>Roberto Goes</strong><span>Diretor Presidente · VRG Engenharia</span></div></div>
+        <div class="dep-slide"><p>Iniciamos em 2021 um teste para abatimento de poeira através dos canhões de névoa da Suppress e finalizamos em meados de 2022 com imenso sucesso. Agradecemos pelo empenho e dedicação da equipe Suppress que nos auxiliou em todo processo.</p><div class="dep-author"><strong>Reniel Dalbone</strong><span>Porto Sudeste</span></div></div>
       </div>
-      <div class="quote-slide">
-        <blockquote>Gostaria de expressar nosso reconhecimento pela excelência no atendimento prestado pela equipe da SUPPRESS. Sempre fomos atendidos com agilidade, profissionalismo e atenção. Os canhões têm se mostrado altamente eficientes, atendendo perfeitamente às nossas necessidades operacionais. Além disso, o suporte técnico tem se destacado pela rapidez e pela qualidade nas soluções apresentadas. Agradecemos pela parceria e pelo comprometimento contínuo com a qualidade dos serviços!</blockquote>
-        <div class="by"><b>Leandro Santos</b>Pátio de Matérias Primas · ArcelorMittal Tubarão</div>
+      <div class="dep-nav">
+        <button class="dep-prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="dep-next" type="button" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
-      <div class="quote-slide">
-        <blockquote>Hoje, na empresa, os canhões de névoa são fundamentais para atender as demandas ambientais em nossa planta de beneficiamento de calcário. Equipe sempre a disposição para nos atender.</blockquote>
-        <div class="by"><b>Edney Benício Moreira</b>Beneficiamento de Calcário · Lhoist</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Conhecemos a SUPPRESS em julho de 2021, fizemos um primeiro contato para testar o equipamento deles para abatimento de particulados nas operações de nosso aterro industrial, ficamos muito satisfeitos com os testes realizados e desde então já adquirimos 2 equipamentos. Eles sempre nos atendem da melhor forma possível e além de equipamentos excelentes, possuem uma equipe técnica muito qualificada.</blockquote>
-        <div class="by"><b>Bianca Martins</b>Engenheira · Tupy</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Estamos trabalhando com a Suppress desde 2019, em uma parceria em que foram realizadas locações e compras de equipamentos. Em meio aos desafios naturais que surgiram devido ao primeiro fornecimento para indústria siderúrgica, a Equipe Suppress sempre esteve disponível e oferecendo um grande suporte pós-venda, nos auxiliando a atender os objetivos estabelecidos para o projeto.</blockquote>
-        <div class="by"><b>Raul Baêta</b>Engenheiro Mecânico · Usiminas</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Estamos trabalhando com a Suppress desde Outubro de 2016 com dois conjuntos de Canhões de Névoa para supressão de poeira. Ao longo deste período a Suppress tem demostrado conhecimento técnico, eficiência e profissionalismo, tanto da empresa quanto de seus colaboradores. Estamos muito satisfeitos com esta parceria.</blockquote>
-        <div class="by"><b>Monique Bodard</b>Fundação Renova</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>A Suppress nos atendeu muito bem construindo um projeto em conjunto para viabilizar a instalação do canhão de névoa em nossa operação. Mesmo após aquisição a empresa mantém o suporte técnico necessário.</blockquote>
-        <div class="by"><b>Renan Eliotério Marques</b>Área Portuária · Gerdau Vitória</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>A Equipe da Suppress nos atendem muito bem. Sempre dispostos a nos ajudar na resolução de problemas.</blockquote>
-        <div class="by"><b>Elio de Sena Sousa</b>Pátio de Carvão · Usiminas Ipatinga</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Gostaria de agradecer a toda equipe da Suppress em nome da Sigma Lithium. Quero salientar que os canhões de névoa fornecidos, foram muito eficientes e o suporte técnico é rápido quando precisamos!</blockquote>
-        <div class="by"><b>Ronaldo Lopes</b>Usina de Beneficiamento · Sigma Lithium</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Ao utilizar um equipamento da Suppress no abatimento da poeira no processo de demolição do piso industrial na VSB Tubos, em substituição à aspersão de água por mangueira, obtivemos um excelente resultado, com abatimento muito mais efetivo, consumo de água muito menor e piso menos encharcado, sem geração de lama. A utilização deste equipamento passou a ser padrão de "BOA PRÁTICA" na VSB.</blockquote>
-        <div class="by"><b>Roberto Goes</b>Diretor Presidente · VRG Engenharia</div>
-      </div>
-      <div class="quote-slide">
-        <blockquote>Iniciamos em 2021 um teste para abatimento de poeira através dos canhões de névoa da Suppress e finalizamos em meados de 2022 com imenso sucesso. Agradecemos pelo empenho e dedicação da equipe Suppress que nos auxiliou em todo processo. Esperamos que essa parceria seja duradoura em prol de um desenvolvimento sustentável.</blockquote>
-        <div class="by"><b>Reniel Dalbone</b>Porto Sudeste</div>
-      </div>
-      </div>
-      <div class="quote-nav">
-        <button class="quote-prev" type="button" aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-        <button class="quote-next" type="button" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
-        <div class="quote-dots" id="quote-dots"></div>
-      </div>
-    </div>
-    <div class="center reveal" style="margin-top:40px">
-      <a href="cases.html" class="btn btn--outline-orange">Ver todos os cases
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -746,8 +749,9 @@
   <span>Falar com especialista</span>
 </a>
 
-<script src="assets/home/js/main.js?v=27"></script>
-<script src="assets/home/js/scroll-fx.js?v=2"></script>
-<script src="assets/home/js/forms.js?v=3"></script>
+<script src="assets/home/js/main.js?v=27" defer></script>
+<script src="assets/home/js/scroll-fx.js?v=2" defer></script>
+<script src="assets/home/js/forms.js?v=3" defer></script>
+<script src="assets/js/produtos.js?v=1" defer></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
    Global variables, reset, base typography, layout utilities
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap');
+/* Fontes carregadas via <link> no <head> de cada página — não usar @import aqui */
 
 /* ================================================================
    CSS CUSTOM PROPERTIES

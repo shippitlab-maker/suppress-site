@@ -265,7 +265,11 @@
       current = i;
       var s = slides[i];
       if(tagEl)  tagEl.textContent  = s.getAttribute('data-tag')  || '';
-      if(nameEl) nameEl.textContent = s.getAttribute('data-name') || '';
+      if(nameEl){
+        var nm = s.getAttribute('data-name') || '';
+        // Destaca o número do modelo em laranja (ex.: SP-<b>150e</b>); nomes sem "SP-" ficam brancos.
+        nameEl.innerHTML = nm.replace(/^(SP-)(.+)$/i, '$1<b>$2</b>');
+      }
       if(descEl) descEl.textContent = s.getAttribute('data-desc') || '';
       if(curEl)  curEl.textContent  = ('0'+(i+1)).slice(-2);
     }
@@ -335,95 +339,36 @@
     render();
   })();
 
-  /* ---------- Carrossel de depoimentos (deck/baralho) ---------- */
+  /* ---------- Carrossel de depoimentos (slide horizontal) ---------- */
   (function(){
-    var wrap = document.getElementById('quote-carousel');
-    var deck = document.getElementById('quote-deck');
-    if(!wrap || !deck) return;
-    var slides = Array.prototype.slice.call(deck.querySelectorAll('.quote-slide'));
+    var track = document.getElementById('dep-track');
+    if(!track) return;
+    var slides = track.querySelectorAll('.dep-slide');
     var n = slides.length;
     if(!n) return;
-    var dotsWrap = document.getElementById('quote-dots');
-    var dots = [];
     var cur = 0;
-    var autoTimer, restTimer;
+    var autoTimer;
 
-    slides.forEach(function(s,i){
-      var d = document.createElement('span');
-      if(i === 0) d.classList.add('active');
-      d.addEventListener('click', function(){ change(i); rest(); });
-      dotsWrap.appendChild(d);
-      dots.push(d);
-    });
-
-    /* posiciona todos os cards empilhados (Wiza-style) */
-    function render(){
-      for(var i=0;i<n;i++){
-        var off = (i - cur + n) % n;
-        var s = slides[i];
-        var dealing = s.classList.contains('dealing');
-        if(!dealing){
-          if(off === 0){
-            s.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-            s.style.zIndex = 'auto';
-          } else {
-            s.style.transform = 'translate(10px,-10px) rotate(0deg) scale(.92)';
-            s.style.zIndex = '-1';
-          }
-        }
-        s.classList.toggle('is-front', off === 0 && !dealing);
-        dots[i].classList.toggle('active', i === cur);
-      }
+    function go(i){
+      cur = ((i % n) + n) % n;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
     }
 
-    var animating = false;
-    function change(i){
-      i = ((i % n) + n) % n;
-      if(i === cur || animating) return;
-      animating = true;
-      var inc = slides[i];
-      cur = i;
-      /* card antigo vai para posição "atrás" */
-      render();
-      /* card entrante: dispara animação de arremesso */
-      inc.classList.remove('dealing');
-      void inc.offsetWidth;
-      inc.classList.add('dealing');
+    var prevBtn = document.querySelector('.dep-prev');
+    var nextBtn = document.querySelector('.dep-next');
+    if(prevBtn) prevBtn.addEventListener('click', function(){ go(cur - 1); rest(); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ go(cur + 1); rest(); });
+
+    function start(){ stop(); autoTimer = setInterval(function(){ go(cur + 1); }, 6000); }
+    function stop(){ clearInterval(autoTimer); }
+    function rest(){ stop(); setTimeout(start, 9000); }
+
+    var carousel = document.getElementById('dep-carousel');
+    if(carousel){
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
     }
-
-    slides.forEach(function(s){
-      s.addEventListener('animationend', function(){
-        s.classList.remove('dealing');
-        animating = false;
-        render();
-      });
-    });
-
-    function measureMax(){
-      /* todos os cards com a mesma altura (a do maior depoimento) p/ não ficar desproporcional */
-      var max = 0;
-      slides.forEach(function(s){ s.style.minHeight = ''; });
-      slides.forEach(function(s){ if(s.offsetHeight > max) max = s.offsetHeight; });
-      slides.forEach(function(s){ s.style.minHeight = max + 'px'; });
-      deck.style.height = max + 'px';
-    }
-
-    var prev = wrap.querySelector('.quote-prev');
-    var next = wrap.querySelector('.quote-next');
-    if(prev) prev.addEventListener('click', function(){ change(cur - 1); rest(); });
-    if(next) next.addEventListener('click', function(){ change(cur + 1); rest(); });
-
-    function startAuto(){ stopAuto(); autoTimer = setInterval(function(){ change(cur + 1); }, 6000); }
-    function stopAuto(){ clearInterval(autoTimer); autoTimer = null; clearTimeout(restTimer); }
-    function rest(){ stopAuto(); restTimer = setTimeout(startAuto, 9000); }
-    wrap.addEventListener('mouseenter', stopAuto);
-    wrap.addEventListener('mouseleave', rest);
-
-    measureMax();
-    render();
-    window.addEventListener('resize', measureMax);
-    window.addEventListener('load', measureMax);
-    startAuto();
+    start();
   })();
 
   /* ---------- Eraser reveal (antes/depois) ---------- */

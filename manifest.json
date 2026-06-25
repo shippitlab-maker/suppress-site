@@ -1,0 +1,13 @@
+{
+  "name": "Suppress — Controle de Poeira Industrial",
+  "short_name": "Suppress",
+  "description": "Canhões de névoa para controle de poeira industrial. Fabricação brasileira.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#FF6600",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

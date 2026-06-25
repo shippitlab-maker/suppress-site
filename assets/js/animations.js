@@ -168,6 +168,38 @@
   }
 
   /* ----------------------------------------------------------------
+     DEPOIMENTOS CARROSSEL (página clientes)
+     ---------------------------------------------------------------- */
+  const depTrack = document.getElementById('dep-track');
+  if (depTrack) {
+    const depSlides = depTrack.querySelectorAll('.dep-slide');
+    const n = depSlides.length;
+    let cur = 0;
+    let autoTimer;
+
+    function depGo(i) {
+      cur = ((i % n) + n) % n;
+      depTrack.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    }
+
+    const prevBtn = document.querySelector('.dep-prev');
+    const nextBtn = document.querySelector('.dep-next');
+    if (prevBtn) prevBtn.addEventListener('click', function () { depGo(cur - 1); depRest(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { depGo(cur + 1); depRest(); });
+
+    function depStart() { depStop(); autoTimer = setInterval(function () { depGo(cur + 1); }, 6000); }
+    function depStop() { clearInterval(autoTimer); }
+    function depRest() { depStop(); setTimeout(depStart, 9000); }
+
+    const carousel = document.getElementById('dep-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', depStop);
+      carousel.addEventListener('mouseleave', depStart);
+    }
+    depStart();
+  }
+
+  /* ----------------------------------------------------------------
      PROGRESS BAR ON BLOG / ARTICLE PAGES
      ---------------------------------------------------------------- */
   const progressBar = document.querySelector('.reading-progress');
