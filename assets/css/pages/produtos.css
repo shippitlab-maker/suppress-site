@@ -197,8 +197,36 @@
   border-radius: var(--radius-full);
 }
 
+.ps-info__actions {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--sp-2);
+}
+
+@media (max-width: 899px) { .ps-info__actions { justify-content: center; } }
+
 .ps-info__cta { gap: var(--sp-2); }
 .ps-info__cta svg { width: 18px; height: 18px; }
+
+.ps-info__proposal {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: .04em;
+  padding: 12px 24px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.85);
+  transition: background .25s ease, border-color .25s ease, color .25s ease;
+}
+
+.ps-info__proposal:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.4);
+  color: #fff;
+}
 
 /* ----- Palco do produto ----- */
 .ps-stage {

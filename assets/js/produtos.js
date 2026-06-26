@@ -14,58 +14,58 @@
   var dataEl = document.getElementById('ps-products');
   var PRODUCTS = dataEl ? JSON.parse(dataEl.textContent) : [
     {
-      num: '15', line: 'Pequeno Porte',
-      tagline: 'Controle de poeira em espaços confinados, obras e pátios de pequeno porte.',
-      specs: [['Alcance', '30 m'], ['Vazão', '15 m³/h'], ['Alimentação', '220 V'], ['Rotação', '360°']],
-      tags: ['Construção', 'Demolição', 'Pátios', 'Confinados'], ghost: '15'
+      num: '15', line: 'Compacto',
+      tagline: 'Canhão compacto sobre rodas para obras, pátios e espaços confinados. Gotícula ultrafina de 25 μm.',
+      specs: [['Alcance', '10 a 15 m'], ['Consumo', '1 a 4 L/min'], ['Potência', '1,1 kW'], ['Peso', '110 kg']],
+      tags: ['Construção', 'Demolição', 'Confinados', 'Obras'], ghost: '15'
     },
     {
       num: '35', line: 'Médio Porte',
-      tagline: 'Ideal para pátios de médio porte, usinas de beneficiamento e britagem.',
-      specs: [['Alcance', '35 m'], ['Vazão', '35 m³/h'], ['Alimentação', '380 V'], ['Rotação', '360°']],
-      tags: ['Mineração', 'Britagem', 'Siderurgia'], ghost: '35'
+      tagline: 'Canhão de médio alcance para siderurgia, mineração e operações com particulado moderado. Gotícula de 70 μm.',
+      specs: [['Alcance', 'até 35 m'], ['Consumo', '25 L/min'], ['Potência', '5,5 kW'], ['Peso', '370 kg']],
+      tags: ['Mineração', 'Siderurgia', 'Britagem'], ghost: '35'
     },
     {
       num: '35t', line: 'Médio Porte · Telescópico',
-      tagline: 'Versão telescópica do SP-35 para instalação em altura com maior alcance vertical.',
-      specs: [['Alcance', '35+ m'], ['Vazão', '35 m³/h'], ['Haste', 'até 6 m'], ['Alimentação', '380 V']],
+      tagline: 'Versão com maior potência e consumo ajustável. Alcance de 35 a 40 m, gotícula de 70 μm.',
+      specs: [['Alcance', '35 a 40 m'], ['Consumo', '25 a 60 L/min'], ['Potência', '9,2 kW'], ['Peso', '400 kg']],
       tags: ['Mineração', 'Portos', 'Pátios de Estocagem'], ghost: '35'
     },
     {
       num: '55', line: 'Grande Porte',
       tagline: 'Cobertura ampla para pátios de estocagem, mineração e aciarias.',
-      specs: [['Alcance', '55 m'], ['Vazão', '55 m³/h'], ['Potência', '15 kW'], ['Rotação', '360°']],
+      specs: [['Alcance', '50 a 60 m'], ['Consumo', '25 a 50 L/min'], ['Potência', '22 kW'], ['Peso', '515 kg']],
       tags: ['Mineração', 'Siderurgia', 'Portos'], ghost: '55'
     },
     {
       num: '65', line: 'Grande Porte',
       tagline: 'Longo alcance para grandes pátios e operações de mineração a céu aberto.',
-      specs: [['Alcance', '65 m'], ['Vazão', '65 m³/h'], ['Potência', '22 kW'], ['Rotação', '360°']],
+      specs: [['Alcance', '60 a 80 m'], ['Consumo', '25 a 60 L/min'], ['Potência', '30 kW'], ['Peso', '690 kg']],
       tags: ['Mineração', 'Barragens', 'Terminais'], ghost: '65'
     },
     {
-      num: '150', line: 'Grande Porte',
+      num: '150', line: 'Extra Grande',
       tagline: 'Alcance máximo para imensos pátios de estocagem e mineração a céu aberto.',
-      specs: [['Alcance', '150 m'], ['Vazão', '150 m³/h'], ['Potência', '55 kW'], ['Rotação', '360°']],
+      specs: [['Alcance', '150 a 180 m'], ['Consumo', '125 a 250 L/min'], ['Potência', '92 kW'], ['Peso', '2.500 kg']],
       tags: ['Mineração a céu aberto', 'Grandes pátios'], ghost: '150'
     },
     {
-      num: '65e', line: 'Alta Vazão',
-      tagline: 'Booster de alta pressão com controle remoto incluso para poeira intensa.',
-      specs: [['Alcance', 'até 65 m'], ['Vazão', '65 m³/h+'], ['Booster', 'Alta pressão'], ['Controle', 'Remoto']],
-      tags: ['Alta poeira', 'Automação', 'Mineração'], ghost: '65'
+      num: '65e', line: 'Alta Vazão · Evaporação',
+      tagline: 'Canhão de alta vazão para evaporação forçada de efluentes. Gotícula de 200 μm.',
+      specs: [['Alcance', '60 a 80 m'], ['Consumo', '15 a 20 m³/h'], ['Potência', '30 kW'], ['Aspersão', '20 bicos']],
+      tags: ['Evaporação', 'Barragens', 'Mineração'], ghost: '65'
     },
     {
-      num: '150e', line: 'Alta Vazão',
-      tagline: 'Booster de alta pressão, controle remoto e estação meteorológica integrada.',
-      specs: [['Alcance', 'até 150 m'], ['Vazão', '150 m³/h+'], ['Booster', 'Alta pressão'], ['Extra', 'Est. meteorológica']],
-      tags: ['Grandes complexos', 'Automação', 'Siderurgia'], ghost: '150'
+      num: '150e', line: 'Alta Vazão · Evaporação',
+      tagline: 'O maior evaporador da linha. Gotícula de 200 μm, até 100 bicos de aspersão.',
+      specs: [['Alcance', '150 m'], ['Consumo', '50 a 100 m³/h'], ['Potência', '92 kW'], ['Aspersão', '50 a 100 bicos']],
+      tags: ['Grandes complexos', 'Barragens', 'Siderurgia'], ghost: '150'
     },
     {
       name: 'Conjunto Móvel', line: 'Solução Móvel',
-      tagline: 'Unidade autônoma sobre carreta com reservatório integrado — pronto para operar em qualquer local.',
-      specs: [['Tipo', 'Autônomo'], ['Base', 'Carreta'], ['Reservatório', 'Integrado'], ['Mobilidade', 'Total']],
-      tags: ['Obras', 'Projetos temporários', 'Mineração'], ghost: ''
+      tagline: 'Trailer SP-55 semi-autônomo com canhão, tanque de 6.000 L e gerador 70 KVA. Autonomia de 4 horas.',
+      specs: [['Alcance', '60 m'], ['Autonomia', '4 horas'], ['Tanque', '6.000 L'], ['Peso cheio', '9.500 kg']],
+      tags: ['Obras', 'Áreas remotas', 'Mineração'], ghost: ''
     }
   ];
 
@@ -79,6 +79,7 @@
   var elTags  = showcase.querySelector('[data-tags]');
   var elCta   = showcase.querySelector('[data-cta]');
   var elCtaTx = showcase.querySelector('.ps-info__cta-txt');
+  var elProposal = showcase.querySelector('.ps-info__proposal');
   var elGhost = showcase.querySelector('[data-ghost]');
   var elCount = showcase.querySelector('[data-current]');
   var btnPrev = showcase.querySelector('.ps-nav--prev');
@@ -111,11 +112,17 @@
       }).join('');
     }
 
+    var displayName = p.name || ('SP-' + p.num);
     if (elCtaTx) {
-      elCtaTx.textContent = p.cta
-        ? p.cta
-        : 'Solicitar Proposta para ' + (p.name || ('SP-' + p.num));
+      elCtaTx.textContent = p.cta || ('Ver detalhes do ' + displayName);
     }
+    if (elCta) {
+      var slug = (p.name && !/^SP-/i.test(p.name))
+        ? p.name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-')
+        : 'sp-' + (p.num || '').toLowerCase();
+      elCta.href = 'produtos/' + slug + '.html';
+    }
+    if (elProposal) elProposal.setAttribute('data-product-name', displayName);
     if (elGhost) elGhost.textContent = (p.ghost != null) ? p.ghost : '';
   }
 
