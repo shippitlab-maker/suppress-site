@@ -32,76 +32,77 @@
   <link rel="stylesheet" href="assets/css/components.css">
 
   <style>
-    /* Page-specific styles for areas */
+    /* ── ÁREAS DE ATUAÇÃO — layout imersivo ── */
+
     .sector-section {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--color-border);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      position: relative;
+      overflow: hidden;
     }
-    .sector-section:last-of-type { border-bottom: none; }
+    .sector-section:nth-child(odd) { background: var(--color-white); }
     .sector-section:nth-child(even) { background: var(--color-bg); }
-    .sector-section:nth-child(odd)  { background: var(--color-white); }
 
     .sector-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: clamp(2rem, 4vw, 3.5rem);
       align-items: center;
     }
-
     @media (min-width: 1024px) {
       .sector-layout { grid-template-columns: 1fr 1fr; }
       .sector-layout--reverse .sector-content { order: -1; }
     }
 
     .sector-image {
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       aspect-ratio: 4/3;
       position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
     }
-
     .sector-image img {
       width: 100%; height: 100%;
       object-fit: cover;
+      will-change: transform;
     }
-
     .sector-image::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,102,0,0.15), transparent);
+      background: linear-gradient(160deg, rgba(255,102,0,.12), transparent 60%);
       pointer-events: none;
     }
 
     .sector-tag {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
+      gap: 6px;
+      font-size: .7rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--color-white);
-      background: var(--color-primary);
-      padding: 6px 14px;
-      border-radius: 4px;
+      color: var(--color-primary);
+      background: rgba(255,102,0,.08);
+      border: 1px solid rgba(255,102,0,.2);
+      padding: 5px 14px;
+      border-radius: 999px;
       margin-bottom: 1rem;
     }
 
     .sector-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
       font-weight: 700;
       color: var(--color-dark);
-      line-height: 1.05;
+      line-height: 1.08;
       margin-bottom: 1.25rem;
     }
 
     .sector-desc {
-      font-size: 1rem;
+      font-size: .95rem;
       color: var(--color-gray);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
     }
 
     .sector-norms {
@@ -110,12 +111,11 @@
       gap: 8px;
       margin: 1.5rem 0;
     }
-
     .sector-norm {
-      font-size: 0.75rem;
+      font-size: .72rem;
       font-weight: 600;
       color: var(--color-dark-mid);
-      background: var(--color-bg);
+      background: var(--color-white);
       border: 1px solid var(--color-border);
       padding: 4px 12px;
       border-radius: 999px;
@@ -124,58 +124,175 @@
     .sector-result {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      background: rgba(255,102,0,0.08);
-      border-radius: 8px;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--color-white);
+      border-radius: 12px;
       border-left: 4px solid var(--color-primary);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
       margin: 1.5rem 0;
     }
-
     .sector-result-number {
       font-family: var(--font-display);
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       color: var(--color-primary);
       line-height: 1;
       white-space: nowrap;
     }
-
     .sector-result-text {
-      font-size: 0.875rem;
+      font-size: .85rem;
       color: var(--color-gray);
-      line-height: 1.5;
+      line-height: 1.55;
       margin: 0;
     }
 
-    /* Sector quick-nav anchors */
+    /* Quick-nav sticky */
+    .sector-nav-wrap {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 12px 0;
+    }
     .sector-nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 2rem 0;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0;
     }
-
+    .sector-nav::-webkit-scrollbar { display: none; }
     .sector-nav-btn {
+      flex-shrink: 0;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-radius: 999px;
-      border: 2px solid var(--color-border);
-      font-size: 0.875rem;
+      border: 1px solid var(--color-border);
+      font-size: .8rem;
       font-weight: 600;
-      color: var(--color-dark-mid);
+      color: var(--color-gray);
       background: var(--color-white);
       text-decoration: none;
-      transition: all 0.2s;
+      white-space: nowrap;
+      transition: all .25s ease;
     }
-
-    .sector-nav-btn:hover {
+    .sector-nav-btn:hover,
+    .sector-nav-btn.is-active {
       border-color: var(--color-primary);
       color: var(--color-primary);
-      background: rgba(255,102,0,0.06);
+      background: rgba(255,102,0,.06);
     }
+
+    /* Divider "Outras Aplicações" */
+    .areas-divider {
+      padding: clamp(3rem, 5vw, 4.5rem) 0;
+      background: linear-gradient(180deg, #1a1a1f 0%, #0e0e12 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .areas-divider h2 { color: #fff; margin-bottom: .5rem; }
+    .areas-divider p { color: rgba(255,255,255,.55); max-width: 540px; margin: 0 auto; }
+
+    /* ── AREAS CARD GRID ── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .areas-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+    @media (max-width: 900px) {
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+      .areas-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .areas-grid, .areas-grid--4 { grid-template-columns: 1fr; }
+    }
+
+    .area-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: flex-end;
+      transition: transform .4s cubic-bezier(.25,.46,.45,.94), box-shadow .4s ease;
+    }
+    .area-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.22); }
+
+    .area-card__img { position: absolute; inset: 0; z-index: 0; }
+    .area-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .area-card__img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.92) 100%);
+    }
+
+    .area-card__body {
+      position: relative;
+      z-index: 2;
+      padding: 24px;
+      color: #fff;
+    }
+    .area-card__body h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,.6);
+    }
+    .area-card__body p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.9);
+      margin: 0;
+      text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    }
+
+    /* ── AREA DETAIL MODAL — fullscreen-like ── */
+    .modal--lg {
+      width: 96vw !important;
+      max-width: 96vw !important;
+      height: 92vh !important;
+      max-height: 92vh !important;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      padding: clamp(28px, 4vw, 48px);
+    }
+    .modal--lg .modal__body {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+    .modal--lg h3:first-child {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--color-primary);
+    }
+    .modal--lg p {
+      font-size: .95rem;
+      color: var(--color-gray);
+      line-height: 1.75;
+      margin-bottom: .75rem;
+    }
+    .modal--lg .sector-norms { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.5rem 0; }
+    .modal--lg .sector-norm { font-size: .72rem; font-weight: 600; color: var(--color-dark-mid); background: var(--color-bg); border: 1px solid var(--color-border); padding: 4px 12px; border-radius: 999px; }
+    .modal--lg .sector-result { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; background: rgba(255,102,0,.06); border-radius: 12px; border-left: 4px solid var(--color-primary); margin: 1.5rem 0; }
+    .modal--lg .sector-result-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1; }
+    .modal--lg .sector-result-text { font-size: .85rem; color: var(--color-gray); line-height: 1.55; margin: 0; }
+    .modal__footer { padding: var(--sp-5) clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px); display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--color-border); margin-top: var(--sp-4); }
   </style>
 
   <script type="application/ld+json">
@@ -236,7 +353,7 @@
   <a class="m-link active" href="areas.html">Áreas de Atuação</a>
   <a class="m-link" href="clientes.html">Clientes</a>
   <a class="m-link" href="blog.html">Blog</a>
-  <a class="btn btn--primary btn--block" href="index.html#diagnostico">Diagnóstico Gratuito</a>
+  <a class="btn btn--primary btn--block" href="index.html#diagnostico">Fale Conosco</a>
   <div class="mobile-nav__contact">
     <span>(31) 2510-9600</span>
     <span>comercial@suppress.com.br</span>
@@ -254,286 +371,120 @@
         </nav>
         <span class="section-label" style="color:var(--color-primary);">Onde atuamos</span>
         <h1 id="areas-hero-title">Áreas de Atuação da Suppress</h1>
-        <p>Controle de poeira onde a emissão é crítica: mineração, siderurgia, portos, construção e indústrias pesadas.</p>
-
-        <!-- Quick navigation -->
-        <nav class="sector-nav" aria-label="Navegação por setor">
-          <a href="#mineracao" class="sector-nav-btn">Mineração</a>
-          <a href="#siderurgia" class="sector-nav-btn">Siderurgia</a>
-          <a href="#portos" class="sector-nav-btn">Portos e Terminais</a>
-          <a href="#construcao" class="sector-nav-btn">Construção Civil</a>
-          <a href="#industrias" class="sector-nav-btn">Indústrias em Geral</a>
-        </nav>
+        <p>Controle de poeira, climatização, evaporação e desinfecção — soluções de névoa para os setores mais exigentes do Brasil.</p>
       </div>
-      <div class="page-hero__diagonal" aria-hidden="true"></div>
     </section>
 
-    <!-- ================================================================
-         SETOR 1 — MINERAÇÃO
-         ================================================================ -->
-    <section class="sector-section" id="mineracao" aria-labelledby="min-title">
+    <!-- CONTROLE DE POEIRA — Grid -->
+    <section class="section" style="background:var(--color-bg)">
       <div class="container">
-        <div class="sector-layout">
-          <div class="sector-image fade-in-left">
-            <img src="assets/images/areas/mineracao.jpg"
-                 alt="Canhão de névoa Suppress controlando poeira em operação de mineração a céu aberto"
-                 width="700" height="525" loading="lazy">
+        <div class="section-header--center">
+          <span class="section-label">Onde atuamos</span>
+          <h2 class="section-title">Controle de Poeira</h2>
+          <p class="section-subtitle section-subtitle--center">Setores onde a supressão de particulado é crítica.</p>
+        </div>
+        <div class="areas-grid">
+          <div class="area-card a-reveal" data-area="mineracao" tabindex="0" role="button" aria-label="Ver detalhes de Mineração">
+            <div class="area-card__img"><img src="assets/images/mercados/mineracao.jpg" alt="Mineração" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Mineração</h3>
+              <p>Pátios, britagem e carregamento de minério</p>
+            </div>
           </div>
-          <div class="sector-content fade-in-right">
-            <span class="sector-tag">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
-              Setor
-            </span>
-            <h2 class="sector-title" id="min-title">Controle de Poeira em Mineração</h2>
-            <p class="sector-desc">
-              A mineração é o setor com maior geração de particulado no Brasil. Pátios de estocagem,
-              britagem, peneiramento, carregamento e descarga de minério geram nuvens de poeira que
-              podem se estender por quilômetros, afetando comunidades vizinhas e trabalhadores.
-            </p>
-            <p class="sector-desc">
-              O impacto vai além do ambiental: autuações do IBAMA, embargos pela FEAM (MG) e processos
-              em órgãos estaduais são frequentes em mineradoras sem sistema de supressão eficiente.
-              A NR-22 (Segurança e Saúde na Mineração) exige controle de agentes físicos como o particulado.
-            </p>
-            <p class="sector-desc">
-              Os canhões de névoa Suppress SP-55, SP-65, SP-150 e Alta Vazão são projetados especificamente
-              para os desafios da mineração: alcance de até 150m, rotação 360°, operação contínua em ambientes
-              de alta poeira e integração com estações meteorológicas para acionamento automático.
-            </p>
-
-            <div class="sector-norms" aria-label="Normas e legislações aplicáveis">
-              <span class="sector-norm">NR-22 — Mineração</span>
-              <span class="sector-norm">CONAMA 03/90</span>
-              <span class="sector-norm">NR-15 — Insalubridade</span>
-              <span class="sector-norm">Resolução FEAM</span>
-              <span class="sector-norm">DN-COPAM 01/2008</span>
+          <div class="area-card a-reveal" data-area="construcao" tabindex="0" role="button" aria-label="Ver detalhes de Construção Civil">
+            <div class="area-card__img"><img src="assets/images/mercados/construcao.jpg" alt="Construção Civil" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Construção Civil</h3>
+              <p>Obras, demolições e canteiros urbanos</p>
             </div>
-
-            <div class="sector-result">
-              <span class="sector-result-number">95%</span>
-              <p class="sector-result-text">
-                redução média de emissão de particulado em operações de mineração após instalação
-                dos canhões de névoa Suppress
-              </p>
+          </div>
+          <div class="area-card a-reveal" data-area="impactos-urbanos" tabindex="0" role="button" aria-label="Ver detalhes de Impactos Urbanos">
+            <div class="area-card__img"><img src="assets/images/mercados/impactos-urbanos.jpg" alt="Impactos Urbanos" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Impactos Urbanos</h3>
+              <p>Demolições e obras viárias em cidades</p>
             </div>
-
-            <a href="index.html#diagnostico" class="btn btn--primary">
-              Solicitar diagnóstico para Mineração
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+          </div>
+          <div class="area-card a-reveal" data-area="areas-confinadas" tabindex="0" role="button" aria-label="Ver detalhes de Áreas Confinadas">
+            <div class="area-card__img"><img src="assets/images/mercados/areas-confinadas.jpg" alt="Áreas Confinadas" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Áreas Confinadas</h3>
+              <p>Túneis, galerias e espaços confinados</p>
+            </div>
+          </div>
+          <div class="area-card a-reveal" data-area="engenharia-ambiental" tabindex="0" role="button" aria-label="Ver detalhes de Engenharia Ambiental">
+            <div class="area-card__img"><img src="assets/images/mercados/engenharia-ambiental.jpg" alt="Engenharia Ambiental" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Engenharia Ambiental</h3>
+              <p>Remediação e descontaminação de solo</p>
+            </div>
+          </div>
+          <div class="area-card a-reveal" data-area="aplicacoes-diversas" tabindex="0" role="button" aria-label="Ver detalhes de Aplicações Diversas">
+            <div class="area-card__img"><img src="assets/images/mercados/aplicacoes-diversas.jpg" alt="Aplicações Diversas" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Aplicações Diversas</h3>
+              <p>Cimento, portos, siderurgia e aterros</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         SETOR 2 — SIDERURGIA
-         ================================================================ -->
-    <section class="sector-section" id="siderurgia" aria-labelledby="sid-title">
+    <!-- OUTRAS APLICAÇÕES — Grid -->
+    <section class="section">
       <div class="container">
-        <div class="sector-layout sector-layout--reverse">
-          <div class="sector-image fade-in-right">
-            <img src="assets/images/areas/siderurgia.jpg"
-                 alt="Canhão de névoa Suppress controlando poeira em aciaria e pátio siderúrgico"
-                 width="700" height="525" loading="lazy">
+        <div class="section-header--center">
+          <span class="section-label">Outras aplicações</span>
+          <h2 class="section-title">Além do Controle de Poeira</h2>
+          <p class="section-subtitle section-subtitle--center">Climatização, evaporação, desinfecção e controle sanitário.</p>
+        </div>
+        <div class="areas-grid areas-grid--4">
+          <div class="area-card a-reveal" data-area="eventos" tabindex="0" role="button" aria-label="Ver detalhes de Climatização de Eventos">
+            <div class="area-card__img"><img src="assets/images/mercados/eventos.jpg" alt="Climatização de Eventos" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Climatização de Eventos</h3>
+              <p>Shows, festivais e feiras ao ar livre</p>
+            </div>
           </div>
-          <div class="sector-content fade-in-left">
-            <span class="sector-tag">Setor</span>
-            <h2 class="sector-title" id="sid-title">Controle de Poeira em Siderurgia</h2>
-            <p class="sector-desc">
-              Em aciarias, alto-fornos, pátios de coque e de matéria-prima, a emissão de particulado
-              é um desafio constante. O pó de óxido de ferro, coque e cal gerado nas operações
-              siderúrgicas é altamente nocivo e sujeito a rígida regulamentação ambiental.
-            </p>
-            <p class="sector-desc">
-              Com processos contínuos, 24 horas por dia, a siderurgia exige equipamentos confiáveis
-              e com alta disponibilidade. Os canhões Suppress são construídos para operação contínua
-              em ambientes agressivos com temperaturas extremas e partículas metálicas.
-            </p>
-
-            <div class="sector-norms" aria-label="Normas aplicáveis">
-              <span class="sector-norm">CONAMA 382/06</span>
-              <span class="sector-norm">NR-9 — PPRA</span>
-              <span class="sector-norm">NR-15 — Insalubridade</span>
-              <span class="sector-norm">ISO 14001</span>
+          <div class="area-card a-reveal" data-area="evaporacao" tabindex="0" role="button" aria-label="Ver detalhes de Evaporação de Efluentes">
+            <div class="area-card__img"><img src="assets/images/mercados/evaporacao.jpg" alt="Evaporação de Efluentes" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Evaporação de Efluentes</h3>
+              <p>Barragens, lagoas e reservatórios</p>
             </div>
-
-            <div class="sector-result">
-              <span class="sector-result-number">80%</span>
-              <p class="sector-result-text">
-                redução de reclamações de vizinhos registrada em siderúrgica de MG após
-                instalação de SP-55 e SP-65 nos pátios de estocagem
-              </p>
+          </div>
+          <div class="area-card a-reveal" data-area="odor-desinfeccao" tabindex="0" role="button" aria-label="Ver detalhes de Controle de Odor e Desinfecção">
+            <div class="area-card__img"><img src="assets/images/mercados/controle-odor.jpg" alt="Controle de Odor e Desinfecção" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Controle de Odor</h3>
+              <p>ETEs, aterros e desinfecção industrial</p>
             </div>
-
-            <a href="index.html#diagnostico" class="btn btn--primary">
-              Solicitar diagnóstico para Siderurgia →
-            </a>
+          </div>
+          <div class="area-card a-reveal" data-area="agroindustria" tabindex="0" role="button" aria-label="Ver detalhes de Agroindústria e Pecuária">
+            <div class="area-card__img"><img src="assets/images/mercados/agroindustria.jpg" alt="Agroindústria e Pecuária" loading="lazy"></div>
+            <div class="area-card__body">
+              <h3>Agroindústria e Pecuária</h3>
+              <p>Aviários, confinamento e biossegurança</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         SETOR 3 — PORTOS E TERMINAIS
-         ================================================================ -->
-    <section class="sector-section" id="portos" aria-labelledby="port-title">
-      <div class="container">
-        <div class="sector-layout">
-          <div class="sector-image fade-in-left">
-            <img src="assets/images/areas/portos-terminais.jpg"
-                 alt="Controle de poeira em pátio de terminal portuário com canhão de névoa Suppress"
-                 width="700" height="525" loading="lazy">
-          </div>
-          <div class="sector-content fade-in-right">
-            <span class="sector-tag">Setor</span>
-            <h2 class="sector-title" id="port-title">Portos, Pátios e Terminais</h2>
-            <p class="sector-desc">
-              Terminais portuários que movimentam granéis sólidos (minério, carvão, soja, cimento)
-              são fontes significativas de emissão de particulado. A proximidade com áreas urbanas
-              e a exposição de trabalhadores portuários intensifica os riscos e as exigências regulatórias.
-            </p>
-            <p class="sector-desc">
-              A ANTAQ e os órgãos ambientais estaduais exigem planos de controle de emissões para
-              licenciamento de terminais. Os canhões SP-35t, SP-65 e SP-150 são ideais para cobrir
-              grandes pátios e proteger as operações de movimentação.
-            </p>
-
-            <div class="sector-norms" aria-label="Normas aplicáveis">
-              <span class="sector-norm">Resolução ANTAQ</span>
-              <span class="sector-norm">CONAMA 03/90</span>
-              <span class="sector-norm">NBR 10004</span>
-              <span class="sector-norm">NR-29 — Portos</span>
-            </div>
-
-            <div class="sector-result">
-              <span class="sector-result-number">100%</span>
-              <p class="sector-result-text">
-                conformidade ambiental obtida por terminal de granéis em SP após implantação
-                do sistema Suppress — zero autuações nos últimos 24 meses
-              </p>
-            </div>
-
-            <a href="index.html#diagnostico" class="btn btn--primary">
-              Solicitar diagnóstico para Portos →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================
-         SETOR 4 — CONSTRUÇÃO CIVIL E DEMOLIÇÃO
-         ================================================================ -->
-    <section class="sector-section" id="construcao" aria-labelledby="constr-title">
-      <div class="container">
-        <div class="sector-layout sector-layout--reverse">
-          <div class="sector-image fade-in-right">
-            <img src="assets/images/areas/construcao.jpg"
-                 alt="Canhão de névoa Suppress controlando poeira em obra de construção civil e demolição"
-                 width="700" height="525" loading="lazy">
-          </div>
-          <div class="sector-content fade-in-left">
-            <span class="sector-tag">Setor</span>
-            <h2 class="sector-title" id="constr-title">Controle de Poeira em Obras — Construção Civil e Demolição</h2>
-            <p class="sector-desc">
-              Obras de grande porte em áreas urbanas enfrentam crescente pressão de moradores,
-              órgãos ambientais e prefeituras. A emissão de poeira de concreto, areia e solo
-              em demolições pode gerar multas, embargos e ações judiciais em poucos dias.
-            </p>
-            <p class="sector-desc">
-              O SP-15 e SP-35 são ideais para canteiros de obra: compactos, com alimentação 220V,
-              baixo consumo de água e fácil reposicionamento. A versão em carretinha permite uso
-              em diferentes frentes de obra sem infraestrutura permanente.
-            </p>
-
-            <div class="sector-norms" aria-label="Normas aplicáveis">
-              <span class="sector-norm">CONAMA 307/02</span>
-              <span class="sector-norm">Lei 12.305/10 (Resíduos)</span>
-              <span class="sector-norm">NR-18 — Construção</span>
-              <span class="sector-norm">Legislações municipais</span>
-            </div>
-
-            <div class="sector-result">
-              <span class="sector-result-number">72h</span>
-              <p class="sector-result-text">
-                tempo médio entre a solicitação e a entrega técnica em obras de construção —
-                resposta rápida para adequação imediata
-              </p>
-            </div>
-
-            <a href="index.html#diagnostico" class="btn btn--primary">
-              Solicitar diagnóstico para Construção →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================
-         SETOR 5 — INDÚSTRIAS EM GERAL
-         ================================================================ -->
-    <section class="sector-section" id="industrias" aria-labelledby="ind-title">
-      <div class="container">
-        <div class="sector-layout">
-          <div class="sector-image fade-in-left">
-            <img src="assets/images/areas/industrias.jpg"
-                 alt="Controle de particulado em indústria pesada com canhão de névoa Suppress"
-                 width="700" height="525" loading="lazy">
-          </div>
-          <div class="sector-content fade-in-right">
-            <span class="sector-tag">Setor</span>
-            <h2 class="sector-title" id="ind-title">Indústrias em Geral</h2>
-            <p class="sector-desc">
-              Além dos setores tradicionais, a Suppress atende indústrias de cimento, celulose,
-              agrícolas, pátios de sucata, usinas de asfalto, aterros sanitários e qualquer operação
-              onde o controle de particulado seja crítico para compliance ambiental e segurança.
-            </p>
-            <p class="sector-desc">
-              Cada aplicação tem suas especificidades — granulometria do particulado, distâncias,
-              condições de vento e restrições elétricas. Nossa equipe de engenharia dimensiona
-              a solução correta para cada cenário, independente do setor.
-            </p>
-
-            <div class="sector-norms" aria-label="Normas aplicáveis">
-              <span class="sector-norm">CONAMA 03/90</span>
-              <span class="sector-norm">NR-15 — Insalubridade</span>
-              <span class="sector-norm">NR-9 — PPRA</span>
-              <span class="sector-norm">Legislação estadual</span>
-            </div>
-
-            <div class="sector-result">
-              <span class="sector-result-number">5+</span>
-              <p class="sector-result-text">
-                setores industriais diferentes atendidos com soluções customizadas —
-                nossa expertise vai além da mineração
-              </p>
-            </div>
-
-            <a href="index.html#diagnostico" class="btn btn--primary">
-              Solicitar diagnóstico para minha indústria →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================
-         CTA FINAL
-         ================================================================ -->
+    <!-- CTA FINAL -->
     <section class="section section--primary" aria-labelledby="areas-cta-title">
       <div class="container" style="text-align:center;max-width:800px;margin:0 auto;">
         <div class="fade-in">
           <span class="section-label" style="color:rgba(255,255,255,0.7);">Seu setor tem solução</span>
           <h2 class="section-title" id="areas-cta-title" style="color:var(--color-white);">
-            Qual é o seu desafio de poeira?
+            Qual é o seu desafio?
           </h2>
           <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);margin-bottom:2rem;line-height:1.7;">
             Independente do setor ou tamanho da operação, temos engenheiros especializados para
-            dimensionar a solução ideal e calcular o ROI para você.
+            dimensionar a solução ideal para dimensionar a solução ideal.
           </p>
           <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-            <a href="index.html#diagnostico" class="btn btn--dark btn--lg">Diagnóstico Gratuito em 48h</a>
+            <a href="#" class="btn btn--dark btn--lg" data-open-proposta data-product-name="">Fale com um Engenheiro</a>
             <a href="produtos.html" class="btn btn--outline-white btn--lg">Ver todos os produtos</a>
           </div>
         </div>
@@ -541,6 +492,176 @@
     </section>
 
   </main>
+
+  <!-- ================================================================
+       AREA DATA TEMPLATES (hidden, used by modal JS)
+       ================================================================ -->
+  <template id="area-data-mineracao">
+    <h3>Controle de Poeira em Mineração</h3>
+    <p>A mineração é o setor com maior geração de particulado no Brasil. Pátios de estocagem, britagem, peneiramento, carregamento e descarga de minério geram nuvens de poeira que podem se estender por quilômetros, afetando comunidades vizinhas e trabalhadores.</p>
+    <p>O impacto vai além do ambiental: autuações do IBAMA, embargos pela FEAM (MG) e processos em órgãos estaduais são frequentes em mineradoras sem sistema de supressão eficiente. A NR-22 (Segurança e Saúde na Mineração) exige controle de agentes físicos como o particulado.</p>
+    <p>Os canhões de névoa Suppress SP-55, SP-65, SP-150 e Alta Vazão são projetados especificamente para os desafios da mineração: alcance de até 150m, rotação 360°, operação contínua em ambientes de alta poeira e controle remoto via rádio para operação à distância.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">NR-22 — Mineração</span>
+      <span class="sector-norm">CONAMA 03/90</span>
+      <span class="sector-norm">NR-15 — Insalubridade</span>
+      <span class="sector-norm">Resolução FEAM</span>
+      <span class="sector-norm">DN-COPAM 01/2008</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">95%</span>
+      <p class="sector-result-text">redução média de emissão de particulado em operações de mineração após instalação dos canhões de névoa Suppress</p>
+    </div>
+  </template>
+
+  <template id="area-data-construcao">
+    <h3>Controle de Poeira em Construção Civil</h3>
+    <p>Obras de grande porte em áreas urbanas enfrentam crescente pressão de moradores, órgãos ambientais e prefeituras. A emissão de poeira de concreto, areia e solo em demolições pode gerar multas, embargos e ações judiciais em poucos dias.</p>
+    <p>O SP-15 e SP-35 são ideais para canteiros de obra: compactos, com alimentação 220V, baixo consumo de água e fácil reposicionamento. A versão em carretinha permite uso em diferentes frentes de obra sem infraestrutura permanente.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">CONAMA 307/02</span>
+      <span class="sector-norm">Lei 12.305/10 (Resíduos)</span>
+      <span class="sector-norm">NR-18 — Construção</span>
+      <span class="sector-norm">Legislações municipais</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">72h</span>
+      <p class="sector-result-text">tempo médio entre a solicitação e a entrega técnica em obras de construção — resposta rápida para adequação imediata</p>
+    </div>
+  </template>
+
+  <template id="area-data-impactos-urbanos">
+    <h3>Impactos Urbanos</h3>
+    <p>Demolições, terraplenagem e obras viárias em perímetros urbanos geram impacto imediato para moradores, comércios e vias públicas. Prefeituras e órgãos de fiscalização exigem medidas de mitigação antes mesmo do início das operações, e o descumprimento pode resultar em embargo e multas significativas.</p>
+    <p>Os canhões Suppress de médio alcance (SP-35, SP-55) são facilmente posicionados em canteiros urbanos, com acionamento rápido e operação silenciosa. A névoa fina abate a poeira sem encharcar a via pública, garantindo conformidade ambiental sem interromper o trânsito ou as atividades do entorno.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">CONAMA 03/90</span>
+      <span class="sector-norm">NR-18 — Construção</span>
+      <span class="sector-norm">Legislações municipais</span>
+      <span class="sector-norm">Plano de Controle Ambiental</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">Zero</span>
+      <p class="sector-result-text">autuações por emissão de poeira em demolições urbanas com sistema Suppress instalado</p>
+    </div>
+  </template>
+
+  <template id="area-data-areas-confinadas">
+    <h3>Áreas Confinadas</h3>
+    <p>Túneis, minas subterrâneas, galerias e espaços confinados concentram particulado em volumes de ar reduzidos, elevando rapidamente os níveis de exposição dos trabalhadores. A ventilação natural é insuficiente e sistemas convencionais de aspersão muitas vezes não são viáveis pela limitação de espaço e potência elétrica.</p>
+    <p>A Suppress desenvolve soluções compactas de névoa para ambientes confinados, com bicos de alta pressão e baixo consumo de água. O sistema reduz a concentração de particulado respirável sem gerar acúmulo de água no piso, atendendo as exigências da NR-33 e protegendo a saúde dos operadores em tempo real.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">NR-33 — Espaços Confinados</span>
+      <span class="sector-norm">NR-22 — Mineração</span>
+      <span class="sector-norm">NR-15 — Insalubridade</span>
+      <span class="sector-norm">FUNDACENTRO NHO-08</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">90%</span>
+      <p class="sector-result-text">redução de particulado respirável em ambientes confinados com sistema de névoa Suppress</p>
+    </div>
+  </template>
+
+  <template id="area-data-engenharia-ambiental">
+    <h3>Engenharia Ambiental</h3>
+    <p>Projetos de remediação ambiental, descontaminação de solo e recuperação de áreas degradadas envolvem movimentação de materiais potencialmente tóxicos. A dispersão de partículas contaminadas representa risco direto à saúde pública e pode ampliar a área de impacto ambiental do passivo original.</p>
+    <p>Os canhões Suppress criam uma cortina de névoa que encapsula a área de trabalho, impedindo que partículas contaminadas se dispersem além do perímetro de segurança. A solução é dimensionada conforme o tipo de contaminante e as condições climáticas locais, garantindo conformidade com os planos de remediação aprovados.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">CONAMA 420/09</span>
+      <span class="sector-norm">NBR 16.209</span>
+      <span class="sector-norm">CETESB DD-038</span>
+      <span class="sector-norm">Plano de Remediação</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">100%</span>
+      <p class="sector-result-text">conformidade com planos de remediação em projetos de engenharia ambiental assistidos pela Suppress</p>
+    </div>
+  </template>
+
+  <template id="area-data-aplicacoes-diversas">
+    <h3>Aplicações Diversas</h3>
+    <p>Além dos setores tradicionais, a tecnologia de névoa Suppress atende indústrias de cimento, celulose, pátios de sucata, usinas de asfalto, aterros sanitários, siderurgias, portos e terminais de granéis. Qualquer operação onde o controle de particulado seja crítico para compliance ambiental e segurança do trabalho é um cenário de aplicação.</p>
+    <p>Cada aplicação tem suas especificidades -- granulometria do particulado, distâncias, condições de vento e restrições elétricas. Nossa equipe de engenharia dimensiona a solução correta para cada cenário, do equipamento individual ao sistema integrado com sensores e automação.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">CONAMA 03/90</span>
+      <span class="sector-norm">NR-15 — Insalubridade</span>
+      <span class="sector-norm">NR-9 — PPRA</span>
+      <span class="sector-norm">ISO 14001</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">10+</span>
+      <p class="sector-result-text">setores industriais diferentes atendidos com soluções customizadas de supressão de poeira</p>
+    </div>
+  </template>
+
+  <template id="area-data-eventos">
+    <h3>Climatização de Eventos</h3>
+    <p>Shows, festivais, eventos esportivos e feiras ao ar livre enfrentam temperaturas extremas que comprometem o conforto e a segurança do público. A insolação e o mal-estar térmico são as principais causas de atendimentos médicos em grandes eventos.</p>
+    <p>Os canhões de névoa Suppress projetam microgotículas que evaporam no ar, reduzindo a temperatura ambiente em até 8 graus Celsius sem molhar o público. A operação é silenciosa e pode ser integrada à estrutura do palco ou posicionada em pontos estratégicos do evento, cobrindo grandes áreas com baixo consumo de água.</p>
+    <div class="sector-result">
+      <span class="sector-result-number">-8 °C</span>
+      <p class="sector-result-text">redução de temperatura ambiente proporcionada pela névoa em eventos ao ar livre</p>
+    </div>
+  </template>
+
+  <template id="area-data-evaporacao">
+    <h3>Evaporação de Efluentes</h3>
+    <p>Barragens de rejeitos, lagoas de decantação e reservatórios de efluentes industriais precisam de manejo hídrico contínuo para manter níveis seguros de operação. A evaporação natural é lenta e insuficiente em períodos chuvosos ou em regiões com alta umidade relativa.</p>
+    <p>Os evaporadores Suppress de alta vazão aceleram a evaporação forçada ao projetar névoa ultrafina sobre a superfície líquida, aumentando drasticamente a taxa de evaporação. A solução auxilia no cumprimento dos planos de segurança de barragens e na gestão de volume de efluentes sem necessidade de tratamento adicional para descarte.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">Lei 12.334/10 — Segurança de Barragens</span>
+      <span class="sector-norm">CONAMA 430/11</span>
+      <span class="sector-norm">ANM — Plano de Segurança</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">3x</span>
+      <p class="sector-result-text">aumento da taxa de evaporação em relação à evaporação natural com sistema Suppress</p>
+    </div>
+  </template>
+
+  <template id="area-data-odor-desinfeccao">
+    <h3>Controle de Odor e Desinfecção</h3>
+    <p>Estações de tratamento de esgoto, aterros sanitários, frigoríficos e instalações industriais geram odores que impactam comunidades vizinhas e podem resultar em ações judiciais e embargos. A dispersão de agentes biológicos em áreas de manejo de resíduos orgânicos é outro risco frequente.</p>
+    <p>Os canhões Suppress podem nebulizar soluções neutralizadoras de odor e agentes desinfetantes, cobrindo grandes áreas com distribuição homogênea. A névoa fina reage com os compostos odoríferos no ar, neutralizando-os antes que alcancem o perímetro da instalação, enquanto a desinfecção reduz a carga microbiológica em ambientes de risco sanitário.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">CONAMA 03/90</span>
+      <span class="sector-norm">Lei 12.305/10 (Resíduos)</span>
+      <span class="sector-norm">Legislações municipais de odor</span>
+      <span class="sector-norm">ANVISA — Desinfecção</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">85%</span>
+      <p class="sector-result-text">redução de reclamações de odor em operações com nebulização de neutralizadores Suppress</p>
+    </div>
+  </template>
+
+  <template id="area-data-agroindustria">
+    <h3>Agroindústria e Pecuária</h3>
+    <p>O estresse térmico em aviários, suinoculturas e confinamentos de gado compromete diretamente a produtividade, a taxa de conversão alimentar e a mortalidade dos animais. Em regiões com temperaturas acima de 30 graus Celsius, as perdas podem representar prejuízo significativo por ciclo produtivo.</p>
+    <p>Os sistemas de névoa Suppress climatizam galpões e áreas de confinamento com microgotículas que evaporam rapidamente, reduzindo a temperatura sem aumentar a umidade do piso. A mesma infraestrutura pode ser utilizada para nebulização de sanitizantes, contribuindo para o controle de doenças respiratórias e a biossegurança do plantel.</p>
+    <div class="sector-norms">
+      <span class="sector-norm">IN MAPA 56/07 — Abate humanitário</span>
+      <span class="sector-norm">PNSA — Sanidade avícola</span>
+      <span class="sector-norm">Boas práticas de manejo</span>
+    </div>
+    <div class="sector-result">
+      <span class="sector-result-number">-6 °C</span>
+      <p class="sector-result-text">redução de temperatura em galpões avícolas com sistema de névoa, diminuindo mortalidade e melhorando a conversão alimentar</p>
+    </div>
+  </template>
+
+  <!-- AREA DETAIL MODAL -->
+  <div class="modal-overlay" id="modal-area" aria-hidden="true">
+    <div class="modal modal--lg" role="dialog" aria-labelledby="modal-area-title">
+      <button class="modal__close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <div class="modal__body" id="modal-area-body">
+        <!-- JS populates this from template -->
+      </div>
+      <div class="modal__footer">
+        <a href="#" class="btn btn--primary btn--lg" data-open-proposta data-product-name="">Solicitar Diagnóstico</a>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -565,9 +686,9 @@
         <h4>Soluções</h4>
         <ul>
           <li><a href="areas.html#mineracao">Mineração</a></li>
-          <li><a href="areas.html#siderurgia">Siderurgia</a></li>
-          <li><a href="areas.html#portos">Portos e Terminais</a></li>
-          <li><a href="areas.html#construcao">Construção</a></li>
+          <li><a href="areas.html#construcao">Construção Civil</a></li>
+          <li><a href="areas.html#impactos-urbanos">Impactos Urbanos</a></li>
+          <li><a href="areas.html#engenharia-ambiental">Engenharia Ambiental</a></li>
           <li><a href="produtos.html">Canhões de Névoa</a></li>
         </ul>
       </div>
@@ -599,5 +720,112 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
 <script src="assets/home/js/main.js" defer></script>
+<script src="assets/js/areas-scroll-fx.js" defer></script>
+<script src="assets/js/modal-proposta.js" defer></script>
+<link rel="stylesheet" href="assets/css/pages/product-detail.css">
+
+<!-- Area card → modal script -->
+<script>
+(function(){
+  var overlay = document.getElementById('modal-area');
+  if (!overlay) return;
+  var body = document.getElementById('modal-area-body');
+  var closeBtn = overlay.querySelector('.modal__close');
+  var proposalBtn = overlay.querySelector('[data-open-proposta]');
+
+  function openArea(id) {
+    var tpl = document.getElementById('area-data-' + id);
+    if (!tpl || !body) return;
+    body.innerHTML = tpl.innerHTML;
+    if (proposalBtn) {
+      var title = tpl.querySelector('h3');
+      proposalBtn.setAttribute('data-product-name', title ? title.textContent : '');
+    }
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArea() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeArea);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeArea(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeArea(); });
+
+  document.querySelectorAll('.area-card').forEach(function(card) {
+    card.addEventListener('click', function() { openArea(card.getAttribute('data-area')); });
+    card.addEventListener('keydown', function(e) { if (e.key === 'Enter') openArea(card.getAttribute('data-area')); });
+  });
+})();
+</script>
+
+<!-- MODAL — Formulário de proposta -->
+<div class="modal-overlay" id="modal-proposta" aria-hidden="true">
+  <div class="modal" role="dialog" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal__body">
+      <h3 id="modal-title">Solicite uma proposta</h3>
+      <p class="fc-sub">Preencha os dados e nossa equipe técnica entra em contato.</p>
+      <div class="modal__product-badge">Setor: <span></span></div>
+      <form novalidate>
+        <input type="hidden" name="produto" value="">
+        <div class="field">
+          <label>Nome completo <span class="req">*</span></label>
+          <input name="nome" type="text" required autocomplete="name">
+          <span class="err">Informe seu nome.</span>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Empresa <span class="req">*</span></label>
+            <input name="empresa" type="text" required autocomplete="organization">
+            <span class="err">Informe a empresa.</span>
+          </div>
+          <div class="field">
+            <label>Setor <span class="req">*</span></label>
+            <select name="setor" required>
+              <option value="">Selecione…</option>
+              <option>Mineração</option>
+              <option>Siderurgia</option>
+              <option>Portos e Terminais</option>
+              <option>Construção e Demolição</option>
+              <option>Outro</option>
+            </select>
+            <span class="err">Selecione o setor.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>WhatsApp <span class="req">*</span></label>
+            <input name="telefone" type="tel" inputmode="numeric" placeholder="(31) 99999-9999" required>
+            <span class="err">Informe um telefone válido.</span>
+          </div>
+          <div class="field">
+            <label>E-mail corporativo <span class="req">*</span></label>
+            <input name="email" type="email" required autocomplete="email">
+            <span class="err">Informe um e-mail válido.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Descreva sua necessidade (opcional)</label>
+          <textarea name="mensagem"></textarea>
+        </div>
+        <label class="check-lgpd">
+          <input type="checkbox" name="lgpd" required>
+          <span>Aceito receber contato da Suppress conforme a <a href="#" style="color:var(--color-primary);font-weight:600">Política de Privacidade</a>.</span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar Solicitação</button>
+      </form>
+    </div>
+    <div class="form-success">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+      <h3>Solicitação enviada!</h3>
+      <p>Recebemos seus dados. Nossa equipe técnica entrará em contato em até 48h.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>

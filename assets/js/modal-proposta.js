@@ -10,9 +10,11 @@
   var formBody = overlay.querySelector('.modal__body');
   var formSuccess = overlay.querySelector('.form-success');
   var productInput = overlay.querySelector('[name="produto"]');
+  var productBadge = overlay.querySelector('.modal__product-badge span');
 
   function open(productName) {
     if (productInput && productName) productInput.value = productName;
+    if (productBadge && productName) productBadge.textContent = productName;
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     var first = form && form.querySelector('input, select, textarea');

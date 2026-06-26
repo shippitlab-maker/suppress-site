@@ -104,7 +104,7 @@
   <a class="m-link" href="areas.html">Áreas de Atuação</a>
   <a class="m-link" href="clientes.html">Clientes</a>
   <a class="m-link" href="blog.html">Blog</a>
-  <a class="btn btn--primary btn--block" href="index.html#diagnostico">Diagnóstico Gratuito</a>
+  <a class="btn btn--primary btn--block" href="index.html#diagnostico">Fale Conosco</a>
   <div class="mobile-nav__contact">
     <span>(31) 2510-9600</span>
     <span>comercial@suppress.com.br</span>
@@ -232,7 +232,7 @@
             <div class="timeline__content">
               <span class="timeline__year">2025</span>
               <h3 class="timeline__title">Autoativação, Nimbus e projeto semi-autônomo</h3>
-              <p class="timeline__text">Lançamento do sistema de autoativação através de dados meteorológicos. Lançamento do Nimbus, canhão de névoa voltado para construção civil. Lançamento do projeto semi-autônomo completo, integrando inovação, automação e sustentabilidade.</p>
+              <p class="timeline__text">Lançamento do Nimbus, canhão de névoa voltado para construção civil. Lançamento do projeto semi-autônomo completo, integrando inovação, automação e sustentabilidade.</p>
             </div>
           </div>
 
@@ -372,8 +372,8 @@
               a solução ideal para a sua operação.
             </p>
             <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-              <a href="index.html#diagnostico" class="btn btn--dark btn--lg">
-                Solicitar Diagnóstico Gratuito
+              <a href="#" class="btn btn--dark btn--lg" data-open-proposta data-product-name="">
+                Solicitar Proposta
               </a>
               <a href="https://wa.me/553125109600?text=Olá,%20gostaria%20de%20falar%20com%20um%20especialista%20Suppress"
                  class="btn btn--outline-white btn--lg" target="_blank" rel="noopener noreferrer">
@@ -444,5 +444,72 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
 <script src="assets/home/js/main.js" defer></script>
+<script src="assets/js/modal-proposta.js" defer></script>
+<link rel="stylesheet" href="assets/css/pages/product-detail.css">
+
+<!-- MODAL — Formulário de proposta -->
+<div class="modal-overlay" id="modal-proposta" aria-hidden="true">
+  <div class="modal" role="dialog" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal__body">
+      <h3 id="modal-title">Solicite uma proposta</h3>
+      <p class="fc-sub">Preencha os dados e nossa equipe técnica entra em contato.</p>
+      <div class="modal__product-badge">Suppress: <span>Atendimento consultivo</span></div>
+      <form novalidate>
+        <input type="hidden" name="produto" value="">
+        <div class="field">
+          <label>Nome completo <span class="req">*</span></label>
+          <input name="nome" type="text" required autocomplete="name">
+          <span class="err">Informe seu nome.</span>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Empresa <span class="req">*</span></label>
+            <input name="empresa" type="text" required autocomplete="organization">
+            <span class="err">Informe a empresa.</span>
+          </div>
+          <div class="field">
+            <label>Setor <span class="req">*</span></label>
+            <select name="setor" required>
+              <option value="">Selecione…</option>
+              <option>Mineração</option>
+              <option>Siderurgia</option>
+              <option>Portos e Terminais</option>
+              <option>Construção e Demolição</option>
+              <option>Outro</option>
+            </select>
+            <span class="err">Selecione o setor.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>WhatsApp <span class="req">*</span></label>
+            <input name="telefone" type="tel" inputmode="numeric" placeholder="(31) 99999-9999" required>
+            <span class="err">Informe um telefone válido.</span>
+          </div>
+          <div class="field">
+            <label>E-mail corporativo <span class="req">*</span></label>
+            <input name="email" type="email" required autocomplete="email">
+            <span class="err">Informe um e-mail válido.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Descreva sua necessidade (opcional)</label>
+          <textarea name="mensagem"></textarea>
+        </div>
+        <label class="check-lgpd">
+          <input type="checkbox" name="lgpd" required>
+          <span>Aceito receber contato da Suppress conforme a <a href="#" style="color:var(--color-primary);font-weight:600">Política de Privacidade</a>.</span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar Solicitação</button>
+      </form>
+    </div>
+    <div class="form-success">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+      <h3>Solicitação enviada!</h3>
+      <p>Recebemos seus dados. Nossa equipe técnica entrará em contato em até 48h.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
