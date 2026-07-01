@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages/article.css">
+  <link rel="stylesheet" href="assets/css/pages/product-detail.css">
 
   <script type="application/ld+json">
   {
@@ -232,13 +233,16 @@
     <!-- ================================================================
          CTA FINAL
          ================================================================ -->
-    <section class="section section--dark" aria-labelledby="cta-title">
-      <div class="container" style="text-align:center;">
-        <h2 class="section-title section-title--white" id="cta-title">Sua empresa pode ser a próxima a reduzir a poeira a zero</h2>
-        <p style="color:rgba(255,255,255,0.7);max-width:640px;margin:0 auto 2rem;">Fale com nossos engenheiros e descubra a solução ideal para a sua operação.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="index.html#diagnostico" class="btn btn--primary btn--lg">Solicitar Proposta</a>
-          <a href="cases.html" class="btn btn--outline-white btn--lg">Ver Cases de Sucesso</a>
+    <section class="pd-cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="fade-in">
+          <span class="section-label" style="color:var(--color-primary);">Junte-se aos nossos clientes</span>
+          <h2 class="section-title" id="cta-title">Sua empresa pode ser a próxima a reduzir a poeira a zero</h2>
+          <p>Fale com nossos engenheiros e descubra a solução ideal para a sua operação.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="#" class="btn btn--primary btn--lg" data-open-proposta data-product-name="">Solicitar Proposta</a>
+            <a href="https://wa.me/553125109600?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Suppress" class="btn btn--outline-white btn--lg" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+          </div>
         </div>
       </div>
     </section>
@@ -301,5 +305,70 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
 <script src="assets/home/js/main.js" defer></script>
+<script src="assets/js/modal-proposta.js" defer></script>
+
+<!-- MODAL — Formulário de proposta -->
+<div class="modal-overlay" id="modal-proposta" aria-hidden="true">
+  <div class="modal" role="dialog" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal__body">
+      <h3 id="modal-title">Solicite uma proposta</h3>
+      <p class="fc-sub">Preencha os dados e nossa equipe técnica entra em contato.</p>
+      <form novalidate>
+        <input type="hidden" name="produto" value="">
+        <div class="field">
+          <label>Nome completo <span class="req">*</span></label>
+          <input name="nome" type="text" required autocomplete="name">
+          <span class="err">Informe seu nome.</span>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Empresa <span class="req">*</span></label>
+            <input name="empresa" type="text" required autocomplete="organization">
+            <span class="err">Informe a empresa.</span>
+          </div>
+          <div class="field">
+            <label>Setor <span class="req">*</span></label>
+            <select name="setor" required>
+              <option value="">Selecione…</option>
+              <option>Mineração</option>
+              <option>Siderurgia</option>
+              <option>Portos e Terminais</option>
+              <option>Construção e Demolição</option>
+              <option>Outro</option>
+            </select>
+            <span class="err">Selecione o setor.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>WhatsApp <span class="req">*</span></label>
+            <input name="telefone" type="tel" inputmode="numeric" placeholder="(31) 99999-9999" required>
+            <span class="err">Informe um telefone válido.</span>
+          </div>
+          <div class="field">
+            <label>E-mail corporativo <span class="req">*</span></label>
+            <input name="email" type="email" required autocomplete="email">
+            <span class="err">Informe um e-mail válido.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Descreva sua necessidade (opcional)</label>
+          <textarea name="mensagem"></textarea>
+        </div>
+        <label class="check-lgpd">
+          <input type="checkbox" name="lgpd" required>
+          <span>Aceito receber contato da Suppress conforme a <a href="#" style="color:var(--color-primary);font-weight:600">Política de Privacidade</a>.</span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar Solicitação</button>
+      </form>
+    </div>
+    <div class="form-success">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+      <h3>Solicitação enviada!</h3>
+      <p>Recebemos seus dados. Nossa equipe técnica entrará em contato em até 48h.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
