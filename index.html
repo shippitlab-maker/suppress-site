@@ -30,7 +30,8 @@
 <link rel="preload" as="image" href="assets/home/images/hero-bg.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/home/css/main.css?v=19">
 <link rel="stylesheet" href="assets/home/css/home.css?v=49">
-<link rel="stylesheet" href="assets/css/pages/product-detail.css">
+<link rel="preload" as="style" href="assets/css/pages/product-detail.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/css/pages/product-detail.css"></noscript>
 
 <script type="application/ld+json">
 {
@@ -119,10 +120,10 @@
   <div class="hero__scrim" aria-hidden="true"></div>
 
   <div class="container hero__content">
-    <span class="hero__eyebrow reveal">Controle de Poeira Industrial</span>
-    <h1 class="hero__title reveal" data-delay="1">Reduza a poeira e melhore a qualidade do ar com nossas soluções de controle de particulado</h1>
-    <p class="hero__sub reveal" data-delay="2">A Suppress é a única fabricante brasileira especializada em canhões de névoa, soluções robustas, sustentáveis e em conformidade com NR10 e NR12.</p>
-    <div class="hero__actions reveal" data-delay="3">
+    <span class="hero__eyebrow">Controle de Poeira Industrial</span>
+    <h1 class="hero__title">Reduza a poeira e melhore a qualidade do ar com nossas soluções de controle de particulado</h1>
+    <p class="hero__sub">A Suppress é a única fabricante brasileira especializada em canhões de névoa, soluções robustas, sustentáveis e em conformidade com NR10 e NR12.</p>
+    <div class="hero__actions">
       <a href="#diagnostico" class="hero__rfq">Solicitar Diagnóstico
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
       </a>
@@ -290,7 +291,7 @@
       <button class="mk-nav mk-prev" type="button" aria-label="Área anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
       <div class="markets" id="markets-track">
         <a class="market-card" href="areas.html#mineracao">
-          <img src="assets/images/mercados/mineracao.jpg" alt="Mineração — operação a céu aberto" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/mineracao.webp" type="image/webp"><img src="assets/images/mercados/mineracao.jpg" alt="Mineração — operação a céu aberto" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14 11 3-3 5 5-3 3"/><path d="m2 22 7-7"/><path d="M9 11 2 18l4 4 7-7"/><path d="m14 6 4 4"/></svg></div>
             <h3>Mineração</h3>
@@ -298,7 +299,7 @@
           </div>
         </a>
         <a class="market-card" href="areas.html#construcao">
-          <img src="assets/images/mercados/construcao.jpg" alt="Construção — canteiro de obra" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/construcao.webp" type="image/webp"><img src="assets/images/mercados/construcao.jpg" alt="Construção — canteiro de obra" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg></div>
             <h3>Construção</h3>
@@ -306,7 +307,7 @@
           </div>
         </a>
         <a class="market-card" href="areas.html#impactos-urbanos">
-          <img src="assets/images/mercados/impactos-urbanos.jpg" alt="Impactos Urbanos — supressão em vias" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/impactos-urbanos.webp" type="image/webp"><img src="assets/images/mercados/impactos-urbanos.jpg" alt="Impactos Urbanos — supressão em vias" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></div>
             <h3>Impactos Urbanos</h3>
@@ -314,7 +315,7 @@
           </div>
         </a>
         <a class="market-card" href="areas.html#areas-confinadas">
-          <img src="assets/images/mercados/areas-confinadas.jpg" alt="Áreas Confinadas" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/areas-confinadas.webp" type="image/webp"><img src="assets/images/mercados/areas-confinadas.jpg" alt="Áreas Confinadas" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
             <h3>Áreas Confinadas</h3>
@@ -322,7 +323,7 @@
           </div>
         </a>
         <a class="market-card" href="areas.html#engenharia-ambiental">
-          <img src="assets/images/mercados/engenharia-ambiental.jpg" alt="Engenharia Ambiental" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/engenharia-ambiental.webp" type="image/webp"><img src="assets/images/mercados/engenharia-ambiental.jpg" alt="Engenharia Ambiental" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
             <h3>Engenharia Ambiental</h3>
@@ -330,7 +331,7 @@
           </div>
         </a>
         <a class="market-card" href="areas.html#aplicacoes-diversas">
-          <img src="assets/images/mercados/aplicacoes-diversas.jpg" alt="Aplicações Diversas" width="1000" height="600" loading="lazy">
+          <picture><source srcset="assets/images/mercados/aplicacoes-diversas.webp" type="image/webp"><img src="assets/images/mercados/aplicacoes-diversas.jpg" alt="Aplicações Diversas" width="1000" height="600" loading="lazy"></picture>
           <div class="market-card__body">
             <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
             <h3>Aplicações Diversas</h3>
@@ -354,7 +355,7 @@
     </div>
     <div class="special-apps__grid">
       <a class="special-app reveal" href="areas.html#eventos">
-        <img src="assets/images/mercados/eventos.jpg" alt="Climatização de eventos com canhões de névoa" width="1000" height="600" loading="lazy" data-parallax="0.09">
+        <picture><source srcset="assets/images/mercados/eventos.webp" type="image/webp"><img src="assets/images/mercados/eventos.jpg" alt="Climatização de eventos com canhões de névoa" width="1000" height="600" loading="lazy" data-parallax="0.09"></picture>
         <div class="special-app__overlay"></div>
         <div class="special-app__body">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></div>
@@ -364,7 +365,7 @@
         </div>
       </a>
       <a class="special-app reveal" data-delay="1" href="areas.html#evaporacao">
-        <img src="assets/images/mercados/evaporacao.jpg" alt="Evaporação forçada de efluentes em barragem" width="1000" height="600" loading="lazy" data-parallax="0.09">
+        <picture><source srcset="assets/images/mercados/evaporacao.webp" type="image/webp"><img src="assets/images/mercados/evaporacao.jpg" alt="Evaporação forçada de efluentes em barragem" width="1000" height="600" loading="lazy" data-parallax="0.09"></picture>
         <div class="special-app__overlay"></div>
         <div class="special-app__body">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 4.7 7 2.7c-.29 2-1.14 3.5-2.29 4.36S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A11 11 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a7 7 0 0 1-11.91 4.97"/></svg></div>
@@ -374,7 +375,7 @@
         </div>
       </a>
       <a class="special-app reveal" data-delay="2" href="areas.html#odor-desinfeccao">
-        <img src="assets/images/mercados/controle-odor.jpg" alt="Controle de odor e desinfecção com canhões de névoa" width="1000" height="600" loading="lazy" data-parallax="0.09">
+        <picture><source srcset="assets/images/mercados/controle-odor.webp" type="image/webp"><img src="assets/images/mercados/controle-odor.jpg" alt="Controle de odor e desinfecção com canhões de névoa" width="1000" height="600" loading="lazy" data-parallax="0.09"></picture>
         <div class="special-app__overlay"></div>
         <div class="special-app__body">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg></div>
@@ -384,7 +385,7 @@
         </div>
       </a>
       <a class="special-app reveal" data-delay="3" href="areas.html#agroindustria">
-        <img src="assets/images/mercados/agroindustria.jpg" alt="Agroindústria e pecuária — climatização e controle sanitário" width="1000" height="600" loading="lazy" data-parallax="0.09">
+        <picture><source srcset="assets/images/mercados/agroindustria.webp" type="image/webp"><img src="assets/images/mercados/agroindustria.jpg" alt="Agroindústria e pecuária — climatização e controle sanitário" width="1000" height="600" loading="lazy" data-parallax="0.09"></picture>
         <div class="special-app__overlay"></div>
         <div class="special-app__body">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></div>
