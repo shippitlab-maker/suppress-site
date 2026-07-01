@@ -379,7 +379,7 @@
     if(!wrap || !canvas) return;
     var ctx = canvas.getContext('2d');
     var beforeImg = new Image();
-    beforeImg.src = 'assets/images/antes.jpg';
+    beforeImg.src = 'assets/images/antes.webp';
     var ready = false;
     var erasing = false;
     var RADIUS = 80;
