@@ -294,7 +294,8 @@
   color:#fff;transition:transform .4s var(--ease),box-shadow .4s var(--ease);
 }
 .special-app:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.special-app>img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;z-index:0}
+.special-app>picture{display:contents}
+.special-app img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;z-index:0}
 .special-app__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.75))}
 .special-app__body{position:relative;z-index:2;padding:clamp(20px,3vw,32px)}
 .special-app__body .ic{width:40px;height:40px;color:var(--color-primary-light);margin-bottom:10px}
