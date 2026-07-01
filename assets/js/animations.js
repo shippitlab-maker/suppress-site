@@ -82,14 +82,14 @@
           if (entry.isIntersecting) {
             const children = entry.target.children;
             Array.from(children).forEach((child, i) => {
-              child.style.transitionDelay = `${i * 100}ms`;
+              child.style.transitionDelay = `${Math.min(i, 8) * 100}ms`;
               child.classList.add('visible');
             });
             staggerObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
 
     staggerGroups.forEach(group => {
